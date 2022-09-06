@@ -1,0 +1,325 @@
+//Default Vars
+$root-font-size: 62.5%;
+$body-min-height: 100vh;
+
+//Project Vars
+$body-bg-img-color: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+$main-font-family: "Lato", sans-serif;
+$header-height: 90vh;
+$body-font-weight: 400;
+$body-line-height: 1.7;
+$black: #000;
+$white: #FFF;
+$dark-grey: #444;
+$light-grey: #777;
+$primary-border-color: magenta;
+$shaded-gradient-overlay: linear-gradient(to top,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.99));
+$hover-box-shadow: 0 1rem 2rem rgba($black, .6);
+$active-box-shadow: 0 .5rem 1rem rgba($black, .5);
+;
+
+//Project Mixins
+@mixin btn {
+  
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: $root-font-size;
+}
+
+body {
+  min-height: $body-min-height;
+  background-image: $body-bg-img-color;
+  font-family: $main-font-family;
+  font-weight: $body-font-weight;
+  line-height: $body-line-height;
+  color: $light-grey;
+  box-sizing: border-box;
+  //Lines below added to make gradient not repeat for mobile devices
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.header {
+  display: block;
+  height: $header-height;
+  border: .1rem solid $primary-border-color;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  margin: max(2vh, 2vw) max(2vh, 2vw) 0 max(2vh, 2vw);
+
+  position: relative;
+  background-image: $shaded-gradient-overlay,
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  clip-path: polygon(0% 0, 100% 0, 100% 88%, 0 100%);
+
+  &__logo-box-1 {
+    position: absolute;
+    top: 1.5rem;
+    left: 2rem;
+    font-size: 1.3rem;
+    animation: moveFromTop 1s ease-in-out;
+  }
+
+  &__logo-box-2 {
+    position: absolute;
+    top: 4.5rem;
+    left: 3.1rem;
+    animation: moveFromBottom 1s ease-in-out;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    padding-top: 10vh;
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+section {
+  position: relative;
+}
+
+.heading-primary {
+  color: $white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 2.5rem;
+
+  &--main {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, min(5vw, 9vh), 10rem);
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    animation: moveFromLeft 1s ease-in-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: clamp(1rem, min(2vw, 2.1vh), 5rem);
+    font-weight: 400;
+    letter-spacing: .7rem;
+    animation: moveFromRight 1s ease-in-out;
+  }
+}
+
+
+
+@keyframes moveFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem)
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem)
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-1rem)
+  }
+
+  80% {
+    transform: translateY(.2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem)
+  }
+
+  80% {
+    transform: translateY(-.2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem)
+  }
+
+  80% {
+    transform: translateY(-.2rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+
+.btn:link,
+.btn:visited {
+  font-weight: bold;
+  font-size: clamp(1rem, 1.2vw, 3rem);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 100px;
+}
+
+.btn:hover {
+  color: $black;
+  transform: translateY(-3px);
+  box-shadow: $hover-box-shadow;
+}
+
+.btn:active {
+  color: $dark-grey;
+  transform: translateY(-1px);
+  box-shadow: $active-box-shadow;
+}
+
+.btn--white {
+  background-color: rgba($white, 0.477);
+  color: $dark-grey;
+  transition: all .2s;
+  position: relative;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn--white::after {
+  background-color: $white;
+}
+
+.btn:hover::after {
+  transform: scale(1.5);
+  opacity: 0;
+}
+
+.btn--animated {
+  animation: moveFromBottom 1s ease-in-out;
+  animation-fill-mode: backwards;
+}
+
+.btn--calculator {
+  margin: 3rem auto;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#codeEditor,
+#lineCounter {
+  // font-family: lucida console, courier new, courier, monospace;
+  height: 50vh;
+  // border-radius: 0;
+  // resize: none;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  outline: none;
+}
+
+#codeEditor {
+  padding: .3rem;
+  width: 94%;
+  border: .1rem solid $primary-border-color;
+  border-left: 1px solid $black;
+  color: $black;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+#lineCounter {
+  font-weight: bold;
+  text-align: right;
+  color: $black;
+  width: 6%;
+  padding: .3rem;
+  border: .5px solid $primary-border-color;
+  border-right: .1rem solid $black;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.code-box {
+  height: $header-height;
+  margin: max(10vh, 10vw) max(2vh, 2vw) max(2vh, 2vw) max(2vh, 2vw);
+  text-align: center;
+}
