@@ -2,8 +2,8 @@ let htmlTemplateStr = `for(int i = 0; i < n; i++){
 
 }`;
 
-let codeEditor = document.getElementById('codeEditor');
-let lineCounter = document.getElementById('lineCounter');
+let codeEditor = document.querySelector('.code-editor');
+let lineCounter = document.querySelector('.line-counter');
 
 let lineCountCache = 0;
 function line_counter() {
@@ -17,6 +17,10 @@ function line_counter() {
 	}
 	lineCountCache = lineCount;
 }
+
+lineCounter.addEventListener('click', () => {
+	document.getElementById('editor').focus();
+});
 
 codeEditor.addEventListener('scroll', () => {
 	lineCounter.scrollTop = codeEditor.scrollTop;

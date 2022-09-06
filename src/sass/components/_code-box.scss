@@ -1,0 +1,57 @@
+.code-editor,
+.line-counter {
+  height: 50vh;
+}
+
+.code-editor {
+  width: 94%;
+  border: .1rem solid $primary-border-color;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+.line-counter {
+  width: 6%;
+  border: .1rem solid $primary-border-color;
+  border-right: .1rem solid $black;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  
+}
+
+.code-box {
+  // margin: max(10vh, 10vw) max(2vh, 2vw) max(2vh, 2vw) max(2vh, 2vw);
+
+    @media (max-width: 40px) {
+    margin: 0;
+  }
+
+  @media (max-width: 105rem) and (min-width: 40rem) {
+    border: .1rem solid $primary-border-color;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    margin: max(2vh, 2vw) max(2vh, 2vw) 0 max(2vh, 2vw);
+  }
+
+  @media (min-width: 105rem) {
+    border: .1rem solid $primary-border-color;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    margin: 0 auto;
+    width: 160rem;
+  }
+
+  &:hover .code-editor,
+  &:hover .line-counter{
+    border: .1rem solid $primary-border-color;
+    box-shadow: $hover-box-shadow;
+  }
+
+  &:focus-within .code-editor,
+  &:focus-within .line-counter{
+    border: .1rem solid $primary-border-color;
+    outline: rgba($white,.5) solid .2rem;
+    box-shadow: $active-box-shadow;
+  }
+  
+}

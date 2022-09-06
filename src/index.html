@@ -8,9 +8,9 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
   <link rel="stylesheet" href="css/icon-font.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/main.css">
   <script src="js/code-box.js" defer></script>
-  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 
   <title>MAVERICK | Run-time Complexity Calculator</title>
 </head>
@@ -19,7 +19,7 @@
   <header class="header">
     <span class="header__logo-box-1">🧠💡🟰💪🏆</span>
     <div class="header__logo-box-2">
-      <img src="img/logo-white.png" alt="Logo" class="header__logo">
+      <img src="assets/logo-white.png" alt="Logo" class="header__logo">
 
     </div>
 
@@ -32,12 +32,25 @@
     </div>
 
   </header>
-  <section>
+  <section class="grid">
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+    <div class="item">item 4</div>
+    <div class="item">item 5</div>
+    <div class="item">item 6</div>
+    <div class="item">item 7</div>
+    <div class="item">item 8</div>
+    <div class="item">item 9</div>
+  </section>
+  <section class="code">
     <div class="code-box">
-      <textarea id='lineCounter' readonly>1.</textarea><textarea id='codeEditor'></textarea>
-      <a href="#" class="btn btn--white btn--animated btn--calculator">calculate</a>
+      <textarea class='line-counter' readonly>1.</textarea><textarea id="editor" class='code-editor'></textarea>
     </div>
-    
-  </section </body>
+    <a href="#" class="btn btn--white btn--animated btn--calculator">calculate</a>
+  </section 
+
+
+</body>
 
 </html>
