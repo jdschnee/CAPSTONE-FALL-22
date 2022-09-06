@@ -1,0 +1,46 @@
+body {
+  font-family: $main-font-family;
+  font-weight: $body-font-weight;
+  line-height: $body-line-height;
+  color: $light-grey;
+}
+
+.heading-primary {
+  color: $white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 2.5rem;
+
+  &--main {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.5rem, min(5vw, 9vh), 10rem);
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    animation: moveFromLeft 1s ease-in-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: clamp(1rem, min(2vw, 2.1vh), 5rem);
+    font-weight: 400;
+    letter-spacing: .7rem;
+    animation: moveFromRight 1s ease-in-out;
+  }
+}
+
+.code-editor,
+.line-counter {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  padding: .3rem;
+}
+
+.line-counter {
+  font-weight: bold;
+  text-align: right;
+}
+
+.code-box {
+  color: $black;
+}

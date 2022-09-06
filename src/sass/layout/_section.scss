@@ -1,0 +1,30 @@
+section.code{
+  height: $header-height;
+  text-align: center;
+}
+
+// section.grid {
+//   background-color: rgba($color: silver, $alpha: .5);
+//   margin-top: 10rem;
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr) ;
+//   gap: 5rem;
+//   height: $header-height;
+//   border: .1rem solid $primary-border-color;
+//   // border-top-left-radius: 2rem;
+//   // border-top-right-radius: 2rem;
+//   margin: max(2vh, 2vw) max(2vh, 2vw) 0 max(2vh, 2vw);
+//   // clip-path: polygon(0% 0, 100% 0, 100% 88%, 0 100%);
+// }
+
+// .item{
+//   background-color: steelblue;
+//   color: $white;
+//   font-size: 3rem;
+//   padding: 2rem;
+//   border: solid tan 1rem;
+
+//   &:last-child{
+//     // margin-bottom: 25rem;
+//   }
+// }
