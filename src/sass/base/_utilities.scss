@@ -1,3 +1,18 @@
 .u-center-text{
   text-align: center;
 }
+
+.u-margin-bottom-small{
+  margin-bottom: max(.5vw, .5vh);
+  margin-bottom: min(max(.5vh, .5vw), 8rem);
+}
+
+.u-margin-bottom-med{
+  margin-bottom: max(3vw, 3vh);
+  margin-bottom: min(max(3vh, 3vw), 8rem);
+}
+
+.u-margin-bottom-med{
+  margin-bottom: max(5vw, 5vh);
+  margin-bottom: min(max(5vh, 5vw), 8rem);
+}

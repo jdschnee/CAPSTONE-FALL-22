@@ -2,7 +2,7 @@ body {
   font-family: $main-font-family;
   font-weight: $body-font-weight;
   line-height: $body-line-height;
-  color: $light-grey;
+  color: $white;
 }
 
 .heading-primary {
@@ -14,7 +14,7 @@ body {
   &--main {
     display: block;
     margin-bottom: 1.5rem;
-    font-size: clamp(2.5rem, min(5vw, 9vh), 10rem);
+    font-size: clamp(2rem, min(5vw, 9vh), 10rem);
     font-weight: 700;
     letter-spacing: 1.7rem;
     animation: moveFromLeft 1s ease-in-out;
@@ -46,23 +46,40 @@ body {
 }
 
 .heading-secondary {
+  padding-top: min(min(6vw, 6vh), 8rem);
   display: inline-block;
-  // background-image: linear-gradient(to right, #4756c9, #ffcb71);
   color: $white;
-  letter-spacing: 1.5rem;
-  font-size: clamp(2.5rem, max(2vh, 2vw), 4rem);
+  letter-spacing: 1rem;
+  // font-size: clamp(2.5rem, max(2vh, 2vw), 4rem);
+  font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
   text-transform: uppercase;
   font-weight: 700;
-  // -webkit-background-clip: text;
-  // color: transparent;
-  transition: all .2s;
+  transition: all .5s;
 
   &:hover {
-    letter-spacing: 1.7rem;
-    transform: skewX(10deg);
-    background-image: linear-gradient(to right, #4756c9, #ffcb71);
+    letter-spacing: 1.3rem;
+    transform: skewX(-20deg) skewY(-1deg);
+    background-image: linear-gradient(to right, #b450bf, #fbc574);
     -webkit-background-clip: text;
+    text-decoration: underline;
     color: transparent;
-    text-shadow:.5rem 1rem 2rem rgba($black, .2);
+    text-shadow: .5rem 1rem 2rem rgba($black, .7);
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: clamp(1rem, min(3vw, 3.1vh), 6.5rem);
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  font-size: clamp(1rem, min(2vw, 2vh), 5rem);
+
+  &:not(:last-child) {
+    margin-bottom: min(max(4vh, 4vw), 8rem);
   }
 }
