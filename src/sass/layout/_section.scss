@@ -3,6 +3,29 @@ section.code{
   text-align: center;
 }
 
+// section.grid{
+//   padding-top: 15rem;
+//   border: $primary-border-color solid .1rem;
+//   display: grid;
+//   height: $header-height;
+//   background-image: $shaded-gradient-overlay;
+//   // border-top-left-radius: 2rem;
+//   // border-top-right-radius: 2rem;
+//   clip-path: polygon(0% 12%, 100% 0, 100% 88%, 0 100%);
+//   @media (max-width: 40rem) {
+//     margin: 0;
+//   }
+
+//   @media (max-width: 105rem) and (min-width: 40rem) {
+//     margin: max(2vh, 2vw) max(2vh, 2vw) 8vw max(2vh, 2vw);
+//   }
+
+//   @media (min-width: 105rem) {
+//     margin: 3vw auto;
+//     width: 160rem;
+//   }
+// }
+
 // section.grid {
 //   background-color: rgba($color: silver, $alpha: .5);
 //   margin-top: 10rem;
