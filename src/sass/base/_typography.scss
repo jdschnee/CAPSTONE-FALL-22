@@ -83,3 +83,13 @@ body {
     margin-bottom: min(max(4vh, 4vw), 8rem);
   }
 }
+
+.heading-calculator{
+  border: magenta solid .1rem;
+  background-color: $black;
+  letter-spacing: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
+  color: $white;
+}
