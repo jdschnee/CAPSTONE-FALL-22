@@ -1,0 +1,20 @@
+//Default Vars
+$root-font-size: 62.5%;
+$body-min-height: 100vh;
+
+//Project Vars
+$body-bg-img-color: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+$main-font-family: "Lato", sans-serif;
+$header-height: 93vh;
+$body-font-weight: 400;
+$body-line-height: 1.7;
+$black: #000;
+$white: #FFF;
+$dark-grey: #444;
+$light-grey: #777;
+$primary-border-color: magenta;
+$shaded-gradient-overlay: linear-gradient(to top,
+    rgba(255, 255, 255, 0.2),
+    rgba(0, 0, 0, 0.99));
+$hover-box-shadow: 0 1rem 2rem rgba($black, .6);
+$active-box-shadow: 0 .5rem 1rem rgba($black, .5);

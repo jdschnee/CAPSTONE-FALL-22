@@ -31,8 +31,5 @@
     "onchange": "^7.1.0",
     "postcss-cli": "^9.1.0",
     "sass": "^1.49.8"
-  },
-  "devDependencies": {
-    "cucumber": "^6.0.7"
   }
 }
