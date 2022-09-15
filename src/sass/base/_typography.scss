@@ -1,0 +1,95 @@
+body {
+  font-family: $main-font-family;
+  font-weight: $body-font-weight;
+  line-height: $body-line-height;
+  color: $white;
+}
+
+.heading-primary {
+  color: $white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 2.5rem;
+
+  &--main {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: clamp(2rem, min(5vw, 9vh), 10rem);
+    font-weight: 700;
+    letter-spacing: 1.7rem;
+    animation: moveFromLeft 1s ease-in-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: clamp(1rem, min(2vw, 2.1vh), 5rem);
+    font-weight: 400;
+    letter-spacing: .7rem;
+    animation: moveFromRight 1s ease-in-out;
+  }
+}
+
+.code-editor,
+.line-counter {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  padding: .3rem;
+}
+
+.line-counter {
+  font-weight: bold;
+  text-align: right;
+}
+
+.code-box {
+  color: $black;
+}
+
+.heading-secondary {
+  padding-top: min(min(6vw, 6vh), 8rem);
+  display: inline-block;
+  color: $white;
+  letter-spacing: 1rem;
+  // font-size: clamp(2.5rem, max(2vh, 2vw), 4rem);
+  font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all .5s;
+
+  &:hover {
+    letter-spacing: 1.3rem;
+    transform: skewX(-20deg) skewY(-1deg);
+    background-image: linear-gradient(to right, #b450bf, #fbc574);
+    -webkit-background-clip: text;
+    text-decoration: underline;
+    color: transparent;
+    text-shadow: .5rem 1rem 2rem rgba($black, .7);
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: clamp(1rem, min(3vw, 3.1vh), 6.5rem);
+}
+
+.paragraph {
+  font-size: 1.6rem;
+  font-size: clamp(1rem, min(2vw, 2vh), 5rem);
+
+  &:not(:last-child) {
+    margin-bottom: min(max(4vh, 4vw), 8rem);
+  }
+}
+
+.heading-calculator{
+  border: magenta solid .1rem;
+  background-color: $black;
+  letter-spacing: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
+  color: $white;
+}
