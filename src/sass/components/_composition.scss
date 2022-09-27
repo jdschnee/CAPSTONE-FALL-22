@@ -13,9 +13,34 @@
     z-index: 9;
     transition: all .2s;
 
-    @media (max-width: 50rem) {
-      width: 12em;
-      height: 12em;
+    @media (max-width: 25rem) {
+      width: 5em;
+      height: 5em;
+
+      &--p1 {
+        left: 2rem;
+        top: 8rem;
+      }
+
+      &--p2 {
+        left: 6rem;
+        top: 7rem;
+      }
+
+      &--p3 {
+        left: 1rem;
+        top: 15rem;
+      }
+
+      &--p4 {
+        left: 5rem;
+        top: 14rem;
+      }
+    }
+
+    @media (min-width: 25rem) and (max-width: 35rem) {
+      width: 10em;
+      height: 10em;
 
       &--p1 {
         left: -2rem;
@@ -23,47 +48,122 @@
       }
 
       &--p2 {
-        left: 9rem;
+        left: 7rem;
         top: 1rem;
       }
 
       &--p3 {
         left: -4rem;
-        top: 17rem;
+        top: 15rem;
+      }
+
+      &--p4 {
+        left: 5rem;
+        top: 14rem;
+      }
+    }
+
+    @media (min-width: 35rem) and (max-width: 50rem) {
+      width: 10em;
+      height: 10em;
+
+      &--p1 {
+        left: -2rem;
+        top: 2rem;
+      }
+
+      &--p2 {
+        left: 7rem;
+        top: 1rem;
+      }
+
+      &--p3 {
+        left: -4rem;
+        top: 15rem;
+      }
+
+      &--p4 {
+        left: 5rem;
+        top: 14rem;
+      }
+    }
+
+    @media (min-width: 50rem) and (max-width: 80rem) {
+      width: 12em;
+      height: 12em;
+
+      &--p1 {
+        left: -2rem;
+        top: 0rem;
+      }
+
+      &--p2 {
+        left: 9rem;
+        top: -1rem;
+      }
+
+      &--p3 {
+        left: -4rem;
+        top: 15rem;
       }
 
       &--p4 {
         left: 7rem;
-        top: 16rem;
+        top: 14rem;
       }
     }
 
-    @media (min-width: 50rem) and (max-width: 110rem) {
-      width: 17em;
-      height: 17em;
+    @media (min-width: 80rem) and (max-width: 110rem) {
+      width: 13em;
+      height: 13em;
 
       &--p1 {
         left: 1rem;
-        top: 3rem;
+        top: -2rem;
       }
 
       &--p2 {
-        left: 17rem;
-        top: 2rem;
+        left: 13rem;
+        top: -3rem;
       }
 
       &--p3 {
         left: -1rem;
-        top: 24rem;
+        top: 13rem;
       }
 
       &--p4 {
-        left: 15rem;
-        top: 23rem;
+        left: 11rem;
+        top: 12rem;
       }
     }
 
-    @media (min-width: 110rem) {
+    @media (min-width: 110rem) and (max-width: 140rem) {
+      width: 15em;
+      height: 15em;
+
+      &--p1 {
+        left: 1rem;
+        top: -2rem;
+      }
+
+      &--p2 {
+        left: 15rem;
+        top: -3rem;
+      }
+
+      &--p3 {
+        left: -1rem;
+        top: 15rem;
+      }
+
+      &--p4 {
+        left: 13rem;
+        top: 14rem;
+      }
+    }
+
+    @media (min-width: 140rem) {
       width: 22em;
       height: 22em;
 
