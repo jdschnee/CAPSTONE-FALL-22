@@ -28,28 +28,33 @@
 }
 
 .section-tutorials{
-  // padding: clamp(8rem,2vh, 10rem) clamp(2rem,2vw, 8rem);
-  height: $header-height;
+  // height: $header-height;
   background-image: linear-gradient(to bottom,
     rgba(255, 255, 255, 0.2),
     rgba(0, 0, 0, 0.99));
   @media (max-width: 40rem) {
     margin: 0;
     border-top: $primary-border-color solid .1rem;
-    // margin-top: -11vh
   }
 
   @media (max-width: 105rem) and (min-width: 40rem) {
     margin: 0 max(2vh, 2vw) 0 max(2vh, 2vw);
     border: $primary-border-color solid .1rem;
-    // border-top: none;
   }
 
   @media (min-width: 105rem) {
     margin: 0 auto;
-    // margin-top: -11vh;
     width: 160rem;
     border: $primary-border-color solid .1rem;
-    // border-top: none;
   }
+
+
+}
+
+.section-tutorials-flex-container{
+  display: flex;
+  justify-content: space-around;
+  gap: 1vw;
+  padding: clamp(8rem,2vh, 10rem) clamp(2rem,2vw, 8rem);
+  height: $header-height;
 }
