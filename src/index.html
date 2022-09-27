@@ -29,12 +29,16 @@
         <span class="heading-primary--main">knowledge is power</span>
         <span class="heading-primary--sub">work smarter not harder and learn run-time analysis the easy way</span>
       </h1>
-      <a href="#" class="btn btn--white btn--animated">Learn More</a>
+      <div class="btn-flex-container">
+        <a href="#about-section" class="btn btn--white btn--animated">Learn More</a>
+        <a href="#tutorial-section" class="btn btn--white btn--animated">Video Tutorials</a>
+        <a href="#calculator-section" class="btn btn--white btn--animated">Start Calculating</a>
+      </div>
     </div>
 
   </header>
   <main>
-    <section class="section-about">
+    <section class="section-about" id="about-section">
       <div class="u-center-text u-margin-bottom-med">
         <h2 class="heading-secondary">Where to start?</h2>
       </div>
@@ -62,7 +66,7 @@
         </div>
       </div>
     </section>
-    <section class="section-tutorials">
+    <section class="section-tutorials" id="tutorial-section">
       <div class="u-center-text u-margin-top-small">
         <h2 class="tutorial-heading">tutorials <i class="tutorial-box__icon icon-basic-video"></i></h2>
       </div>
@@ -73,16 +77,24 @@
           <p class="tutorial-box__text">
             Learn the basic principles, techniques, and heuristics to get started with analyzing run-time complexity
           </p>
-          <iframe id="tutorial-video-1" class="tutorial-video" src="https://www.youtube.com/embed/IgeJmTKQlKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe id="tutorial-video-1" class="tutorial-video" src="https://www.youtube.com/embed/IgeJmTKQlKs"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
           <img src="assets/principles.jpg" alt="principles-photo" class="tutorial__photo">
         </div>
         <div class="tutorial-box" tabIndex="2">
           <i class="tutorial-box__icon icon-basic-pencil-ruler"></i>
           <h3 class="heading-tertiary u-margin-bottom-small">Measurements</h3>
           <p class="tutorial-box__text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi delectus nesciunt id, esse eveniet libero? Alias asperiores ratione rem aut similique eligendi magnam, repellendus quidem quod illum omnis quia.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum eligendi delectus nesciunt id, esse
+            eveniet libero? Alias asperiores ratione rem aut similique eligendi magnam, repellendus quidem quod illum
+            omnis quia.
           </p>
-          <iframe class="tutorial-video" src="https://www.youtube.com/embed/vsgrJrphEHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="tutorial-video" src="https://www.youtube.com/embed/vsgrJrphEHo" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
           <img src="assets/measurements.jpg" alt="measurements-photo" class="tutorial__photo">
         </div>
         <div class="tutorial-box" tabIndex="3">
@@ -93,7 +105,10 @@
             blanditiis rerum cum, necessitatibus, quos amet, laudantium explicabo ipsum eius voluptatibus atque
             asperiores facere commodi accusantium!
           </p>
-          <iframe class="tutorial-video" src="https://www.youtube.com/embed/66ovUEE0bQI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="tutorial-video" src="https://www.youtube.com/embed/66ovUEE0bQI" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
           <img src="assets/examples.jpg" alt="examples-photo" class="tutorial__photo">
         </div>
       </div>
@@ -104,7 +119,10 @@
       <h2 class="heading-calculator">Run-time Analysis Calculator</h2>
       <textarea class='line-counter' readonly>1.</textarea><textarea id="editor" class='code-editor'></textarea>
     </div>
-    <a href="#" class="btn btn--white btn--animated btn--calculator">calculate</a>
-  </section </body>
+    <div id="calculator-section">
+          <a href="#" class="btn btn--white btn--animated btn--calculator">calculate</a>
+    </div>
+  </section 
+</body>
 
 </html>
