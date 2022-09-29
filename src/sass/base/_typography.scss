@@ -100,9 +100,17 @@ body {
   font-size: clamp(1rem, min(3vw, 3.1vh), 6.5rem);
 }
 
+.heading-tertiary-tutorial {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: clamp(.7rem, min(2.6vw, 2.7vh), 6.2rem);
+}
+
 .paragraph {
   font-size: 1.6rem;
-  font-size: clamp(1rem, min(2vw, 2vh), 5rem);
+  font-size: clamp(.8rem, min(2vw, 2vh), 5rem);
 
   &:not(:last-child) {
     margin-bottom: min(max(4vh, 4vw), 8rem);
