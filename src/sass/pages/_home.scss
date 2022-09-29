@@ -57,4 +57,8 @@
   gap: 1vw;
   padding: clamp(8rem,2vh, 10rem) clamp(2rem,2vw, 8rem);
   height: $header-height;
+
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  -webkit-perspective: 150rem;
 }
