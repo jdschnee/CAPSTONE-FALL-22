@@ -53,7 +53,8 @@
 
 .section-tutorials-flex-container{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items:stretch;
   gap: 2vw;
   padding: clamp(8rem,2vh, 10rem) clamp(2rem,2vw, 8rem);
   height: $header-height;
