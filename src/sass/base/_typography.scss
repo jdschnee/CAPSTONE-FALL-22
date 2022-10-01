@@ -53,7 +53,7 @@ body {
   // font-size: clamp(2.5rem, max(2vh, 2vw), 4rem);
   font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
   transition: all .5s;
 
 
@@ -77,7 +77,7 @@ body {
   // font-size: clamp(2.5rem, max(2vh, 2vw), 4rem);
   font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
   transition: all .6s;
 
   &:hover {
@@ -94,23 +94,16 @@ body {
 
 .heading-tertiary {
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   text-align: center;
-  font-size: clamp(1rem, min(3vw, 3.1vh), 6.5rem);
-}
-
-.heading-tertiary-tutorial {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: clamp(.7rem, min(2.6vw, 2.7vh), 6.2rem);
+  font-size: clamp(1rem, min(3.2vw, 3.3vh), 6.5rem);
+  word-wrap: break-word;
 }
 
 .paragraph {
   font-size: 1.6rem;
-  font-size: clamp(.8rem, min(2vw, 2vh), 5rem);
+  font-size: clamp(.5rem, min(1.8vw, 1.8vh), 5rem);
 
   &:not(:last-child) {
     margin-bottom: min(max(4vh, 4vw), 8rem);
