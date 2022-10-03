@@ -30,9 +30,15 @@ calcBtn.addEventListener('click', (event) => {
     choiceText.dataset.number = index;
     choiceText.innerText = resultSet[index];
 
+    let choiceIcon = document.createElement("i");
+    // choiceText.classList.add("choice-text");
+    // choiceText.dataset.number = index;
+    // choiceText.innerText = resultSet[index];
+
     quizSection.insertAdjacentElement('beforeend', choiceContainer);
     choiceContainer.insertAdjacentElement('beforeend', choicePrefix);
     choiceContainer.insertAdjacentElement('beforeend', choiceText);
+    choiceContainer.insertAdjacentElement('beforeend', choiceIcon);
   }
 
   let choiceContainers = document.querySelectorAll(".choice-container");
@@ -40,17 +46,22 @@ calcBtn.addEventListener('click', (event) => {
   choiceContainers.forEach(choiceBox => {
     choiceBox.addEventListener('click', (event) =>{
       let choice = choiceBox.querySelector('[data-number]');
+      let icon = choiceBox.querySelector("i");
+      let answer = choiceBox.querySelector(".choice-text");
+      
       if (choice.innerText == result) {
+      icon.classList.add("icon-basic-cup", "choice-icon");
       choiceBox.style.backgroundColor = 'rgba(0,255,0,.9)';
       choiceBox.style.borderColor = 'black';
       choice.style.borderColor = 'black'
       choiceBox.style.color = 'black';
     } else {
+      icon.classList.add("icon-basic-trashcan", "choice-icon");
       choiceBox.style.backgroundColor = 'rgba(255,0,0,.9)';
       choiceBox.style.borderColor = 'black';
       choice.style.borderColor = 'black'
       choiceBox.style.color = 'black';
-      choiceBox.style.textDecoration = 'line-through'
+      answer.style.textDecoration = 'line-through'
     }
     })
   });
