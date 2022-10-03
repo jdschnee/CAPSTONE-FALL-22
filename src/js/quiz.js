@@ -28,7 +28,7 @@ calcBtn.addEventListener('click', (event) => {
     let choiceText = document.createElement("p");
     choiceText.classList.add("choice-text");
     choiceText.dataset.number = index;
-    choiceText.innerText = resultSet[index];
+    choiceText.innerHTML = toSup(resultSet[index]);
 
     let choiceIcon = document.createElement("i");
     // choiceText.classList.add("choice-text");
@@ -44,28 +44,50 @@ calcBtn.addEventListener('click', (event) => {
   let choiceContainers = document.querySelectorAll(".choice-container");
 
   choiceContainers.forEach(choiceBox => {
-    choiceBox.addEventListener('click', (event) =>{
+    choiceBox.addEventListener('click', (event) => {
       let choice = choiceBox.querySelector('[data-number]');
       let icon = choiceBox.querySelector("i");
       let answer = choiceBox.querySelector(".choice-text");
-      
+
       if (choice.innerText == result) {
-      icon.classList.add("icon-basic-cup", "choice-icon");
-      choiceBox.style.backgroundColor = 'rgba(0,255,0,.9)';
-      choiceBox.style.borderColor = 'black';
-      choice.style.borderColor = 'black'
-      choiceBox.style.color = 'black';
-    } else {
-      icon.classList.add("icon-basic-trashcan", "choice-icon");
-      choiceBox.style.backgroundColor = 'rgba(255,0,0,.9)';
-      choiceBox.style.borderColor = 'black';
-      choice.style.borderColor = 'black'
-      choiceBox.style.color = 'black';
-      answer.style.textDecoration = 'line-through'
-    }
-    })
+        icon.classList.add("icon-basic-cup", "choice-icon");
+        choiceBox.style.backgroundColor = 'rgba(0,255,0,.9)';
+        choiceBox.style.borderColor = 'black';
+        choice.style.borderColor = 'black'
+        choiceBox.style.color = 'black';
+
+        icon.addEventListener('click', (event) => {
+          for (const answer of choiceContainers) {
+            answer.remove();
+          }
+          divQuestion.innerText = "Congrats, you found the correct answer!";
+        });
+      } else {
+        icon.classList.add("icon-basic-trashcan", "choice-icon");
+        choiceBox.style.backgroundColor = 'rgba(255,0,0,.9)';
+        choiceBox.style.borderColor = 'black';
+        choice.style.borderColor = 'black'
+        choiceBox.style.color = 'black';
+        answer.style.textDecoration = 'line-through'
+
+        icon.addEventListener('click', (event) => {
+          choiceBox.remove();
+        });
+      }
+
+    });
   });
 
 
 
 })
+
+function toSup(str) {
+  idx = str.indexOf("^");
+  if (idx === -1) {
+    return str;
+  }
+  str = [...str];
+  str.splice(idx, 2, str[idx+1].sup());
+  return str.join("");
+}

@@ -51,13 +51,19 @@
       text-decoration: none;
       padding-top: 1.5rem;
       height: 100%;
-      padding-left: 3.75%;
+      padding-left: 3.5%;
       padding-right: 4rem;
       display: inline-block;
       border-radius: 100px;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       border-left: .01rem solid $black;
+      // transform: all 1sec;
+
+      &:hover {
+        font-size: clamp(1.3rem, 1.5vw, 2.5rem);
+        color: white;
+      }
     }
   }
 
