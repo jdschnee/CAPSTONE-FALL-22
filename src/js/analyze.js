@@ -30,9 +30,7 @@ function buildStmtTree(cst, parent = null) {
     stmts.forEach((stmt, index) => {
       stmts[index]['parent'] = parent;
       stmts[index]['childStmts'] = [];
-      
-      console.log(stmt.hasOwnProperty('blockCst'));
-      console.log(stmt.blockCst);
+
       const childStmt = stmt.hasOwnProperty('blockCst') ? buildStmtTree(stmt.blockCst, stmt) : null;
       if (stmt.hasOwnProperty('blockCst')) {
         buildStmtTree(stmt.blockCst, stmt);

@@ -11,7 +11,6 @@ class StatementCollector extends BaseJavaCstVisitorWithDefaults {
     }
 
     statement(ctx) {
-        // console.log(ctx);
         for (const stmt in ctx) {
             if (stmt == 'statementWithoutTrailingSubstatement' || stmt == 'labeledStatement')
                 this.visit(ctx[stmt]);
@@ -30,7 +29,7 @@ export function getStatements(cst) {
 
     stmts.forEach((stmt, index) => {
         if (stmt.length > 1) throw 'Statement has more than one element'; // TODO: For dev purposes only, remove later
-        
+
         switch (stmt[0].name) {
             case 'forStatement':
                 stmts[index] = getForLoops(stmt);
