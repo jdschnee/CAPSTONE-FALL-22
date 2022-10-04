@@ -1,25 +1,4 @@
-const {
-    BaseJavaCstVisitor,
-    BaseJavaCstVisitorWithDefaults,
-    parse
-} = require("java-parser");
-
-const javaText = `
-public class HelloWorldExample{
-  public static void main(String args[]){
-    int i;
-    for (int i = 0; i < n; n++) {
-        for (int j = 0; j < n; j++) {
-            System.out.println("Hello");
-        }
-    }
-    for(int y = 0; y < n; y++) {}
-    //for(String x : xs) {}
-  }
-}
-`;
-
-
+import { BaseJavaCstVisitorWithDefaults } from "java-parser";
 
 class ForLoopCollector extends BaseJavaCstVisitorWithDefaults {
     constructor() {
@@ -30,15 +9,15 @@ class ForLoopCollector extends BaseJavaCstVisitorWithDefaults {
 
     basicForStatement(ctx) {
         const forLoop = {
-            type: 'basic',
-            init: this.getElements(ctx.forInit[0].children),
+            type: 'basicForLoop',
+            init: ctx.forInit != null ? this.getElements(ctx.forInit[0].children) : null,
             expr: this.getElements(ctx.expression[0].children),
             update: this.getElements(ctx.forUpdate[0].children),
-            stmt: this.getElements(ctx.statement[0].children),
-            blockCst: ctx.statement[0].children
+            blockCst: ctx.statement[0]
         };
         this.loops.push(forLoop);
     }
+
 
     getElements(ctx) {
         const nodes = [];
@@ -63,7 +42,9 @@ class ForLoopCollector extends BaseJavaCstVisitorWithDefaults {
     }
 }
 
-const cst = parse(javaText);
-const forLoopCollector = new ForLoopCollector();
-forLoopCollector.visit(cst);
-console.log(forLoopCollector.loops);
+export function getForLoops(cst) {
+    let forLoopCollector = new ForLoopCollector();
+    forLoopCollector.visit(cst);
+
+    return forLoopCollector.loops[0];
+}
