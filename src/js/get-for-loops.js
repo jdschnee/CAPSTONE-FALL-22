@@ -10,10 +10,10 @@ class ForLoopCollector extends BaseJavaCstVisitorWithDefaults {
     basicForStatement(ctx) {
         const forLoop = {
             type: 'basicForLoop',
-            init: ctx.forInit != null ? this.getElements(ctx.forInit[0].children) : null,
-            expr: this.getElements(ctx.expression[0].children),
-            update: this.getElements(ctx.forUpdate[0].children),
-            blockCst: ctx.statement[0]
+            init: ctx.hasOwnProperty('forInit') ? this.getElements(ctx.forInit[0].children) : null,
+            expr: ctx.hasOwnProperty('expression') ? this.getElements(ctx.expression[0].children) : null,
+            update: ctx.hasOwnProperty('forUpdate') ? this.getElements(ctx.forUpdate[0].children) : null,
+            blockCst: ctx.hasOwnProperty('statement') ? ctx.statement[0] : null
         };
         this.loops.push(forLoop);
     }
