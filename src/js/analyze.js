@@ -1,31 +1,68 @@
-// const getStatements = require('.\get-statements.js');
 import { getStatements } from './get-statements.js';
+import { parse } from "java-parser";
 
 const javaText = `
 public class HelloWorldExample{
   public static void main(String args[]){
-    for (;;) {
-
-    }
     for (int i = 0; i < n; i++) {
-
+      for (int j = 0; j < n; j++) {}
     }
-    if (x == 0) {
-        for (int y = 9; y < n; y++) {
-
-        }
-    }
-    
-    int x = 0;
-    while (x < y) {
-        for (int item : items) {}
+    for (int k = 0; k < n; k++) {
+      for (int l = 0; l < n; l++) {}
     }
   }
 }
 `;
 
-const stmts = getStatements(javaText);
+
+
+function getSourceCodeBigO(javaCode) {
+  const cst = parse(javaCode);
+  const stmtTree = buildStmtTree(cst);
+
+  console.log(stmtTree);
+
+  stmts.forEach(stmt => {
+    stmtsWithBigO.push(stmt, getBigO(stmt));
+  })
+}
+
+function buildStmtTree(cst, parent = null) {
+    const stmts = getStatements(cst);
+    if (stmts.length == 0) return null;
+  
+    stmts.forEach((stmt, index) => {
+      stmts[index]['parent'] = parent;
+      stmts[index]['childStmts'] = [];
+      
+      console.log(stmt.hasOwnProperty('blockCst'));
+      console.log(stmt.blockCst);
+      const childStmt = stmt.hasOwnProperty('blockCst') ? buildStmtTree(stmt.blockCst, stmt) : null;
+      if (stmt.hasOwnProperty('blockCst')) {
+        buildStmtTree(stmt.blockCst, stmt);
+        if (childStmt != null && childStmt.length > 1) throw ('Too many items in child statement array'); // TODO: For dev purposes only, remove later
+        if (childStmt != null) stmts[index]['childStmts'].push(childStmt[0]);
+      }
+    })
+
+    return stmts;
+}
+
+function getStmtBigO(stmt, parent) {
+  switch (stmt.type) {
+    case 'basicForLoop':
+      
+      break;
+    default:
+      break;
+  }
+}
+
+getSourceCodeBigO(javaText);
 
 
 
-console.log(stmts);
+
+
+
+
