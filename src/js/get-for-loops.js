@@ -45,6 +45,6 @@ class ForLoopCollector extends BaseJavaCstVisitorWithDefaults {
 export function getForLoops(cst) {
     let forLoopCollector = new ForLoopCollector();
     forLoopCollector.visit(cst);
-
+    if (forLoopCollector.loops > 0) throw ('Too many loops in forLoopCollector'); //For dev purposes only, delete later
     return forLoopCollector.loops[0];
 }
