@@ -21,10 +21,6 @@ function getSourceCodeBigO(javaCode) {
   const stmtTree = buildStmtTree(cst);
 
   console.log(stmtTree);
-
-  stmts.forEach(stmt => {
-    stmtsWithBigO.push(stmt, getBigO(stmt));
-  })
 }
 
 function buildStmtTree(cst, parent = null) {
@@ -46,16 +42,6 @@ function buildStmtTree(cst, parent = null) {
     })
 
     return stmts;
-}
-
-function getStmtBigO(stmt, parent) {
-  switch (stmt.type) {
-    case 'basicForLoop':
-      
-      break;
-    default:
-      break;
-  }
 }
 
 getSourceCodeBigO(javaText);
