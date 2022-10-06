@@ -48,16 +48,14 @@ calcBtn.addEventListener('click', (event) => {
       let choice = choiceBox.querySelector('[data-number]');
       let icon = choiceBox.querySelector("i");
       let answer = choiceBox.querySelector(".choice-text");
+      console.log(answer, result);
 
-      if (choice.innerText == result) {
+      if (answer.innerHTML === toSup(result)) {
         icon.classList.add("icon-basic-cup", "choice-icon");
         choiceBox.style.backgroundColor = 'rgba(0,255,0,.9)';
         choiceBox.style.borderColor = 'black';
         choice.style.borderColor = 'black'
         choiceBox.style.color = 'black';
-        
-        //added for testing
-        // icon.classList.add("confetti-button");
 
         icon.addEventListener('click', (event) => {
           for (const answer of choiceContainers) {
