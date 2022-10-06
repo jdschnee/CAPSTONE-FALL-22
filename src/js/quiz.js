@@ -55,11 +55,15 @@ calcBtn.addEventListener('click', (event) => {
         choiceBox.style.borderColor = 'black';
         choice.style.borderColor = 'black'
         choiceBox.style.color = 'black';
+        
+        //added for testing
+        // icon.classList.add("confetti-button");
 
         icon.addEventListener('click', (event) => {
           for (const answer of choiceContainers) {
             answer.remove();
           }
+
           divQuestion.innerText = "Congrats, you found the correct answer!";
         });
       } else {
@@ -91,3 +95,5 @@ function toSup(str) {
   str.splice(idx, 2, str[idx+1].sup());
   return str.join("");
 }
+
+

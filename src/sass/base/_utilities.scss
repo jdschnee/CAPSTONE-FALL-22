@@ -26,3 +26,7 @@
   margin-bottom: max(5vw, 5vh);
   margin-bottom: min(max(5vh, 5vw), 8rem);
 }
+
+.high-z-index{
+  z-index: 10000;
+}
