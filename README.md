@@ -1,7 +1,7 @@
 # CAPSTONE-FALL-22
- Team Maverick
- Teaching Algorithm Run-Time Complexity Analysis
- Milestone 1 Branch: jdschnee
+ Team Maverick <br />
+ Teaching Algorithm Run-Time Complexity Analysis <br />
+ Milestone 1 Branch: jdschnee <br />
 
 ## Purpose
 We are building a web application that is meant to help students better learn and understand run-time complexity analysis of algorithms. The tool is meant to provide students with a means of analyzing blocks of Java code for run-time complexity, then quiz them on the true Big-O notation representing the complexity. We also plan to provide additional resources such as videos, articles, and more for  students to explore while learning about the topic.
