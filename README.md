@@ -12,10 +12,10 @@ We have the user interface mostly working at this point, but are working out any
 ## Branches
 - master: This will be our main branch we will commit the main features to as
 we work on them.
-- Bailey
+- Bailey: Broke up our initial starting page into multiple pages and added a footer for easier navigation.
 - ColinsBranch: This branch is for developing a more robust complexity analysis tool that uses a Java parser to more efficiently handle all possible variations of code. This will be committed to the main branch after the parser is fully developed to analyze for loops, then the next main feature will be while loops.
 - JustinsBranch
-- bailey-navigation
+- bailey-navigation: Branched off of jdschnee to add separate pages for the tutorial videos and calculator/quiz and added them to the navigation tab.
 - jdschnee : This is our main branch for Milestone 1
 
 
