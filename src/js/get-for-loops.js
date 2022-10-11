@@ -10,7 +10,7 @@ class ForLoopCollector extends BaseJavaCstVisitorWithDefaults {
 
     basicForStatement(ctx) {
         const forLoop = {
-            type: 'basicForLoop',
+            type: 'forLoop',
             init: ctx.hasOwnProperty('forInit') ? getLeafNodes(ctx.forInit[0].children) : null,
             expr: ctx.hasOwnProperty('expression') ? getLeafNodes(ctx.expression[0].children) : null,
             update: ctx.hasOwnProperty('forUpdate') ? getLeafNodes(ctx.forUpdate[0].children) : null,
