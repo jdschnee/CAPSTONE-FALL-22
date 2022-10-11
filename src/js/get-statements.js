@@ -2,6 +2,7 @@
 import { BaseJavaCstVisitorWithDefaults } from "java-parser";
 
 import { getForLoops } from './get-for-loops.js'
+import { getWhileLoops } from "./get-while-loops.js";
 
 class StatementCollector extends BaseJavaCstVisitorWithDefaults {
     constructor() {
@@ -25,8 +26,6 @@ export function getStatements(cst) {
     stmtCollector.visit(cst);
     let stmts = [...stmtCollector.blocks];
 
-    
-
     stmts.forEach((stmt, index) => {
         if (stmt.length > 1) throw 'Statement has more than one element'; // TODO: For dev purposes only, remove later
 
@@ -38,7 +37,7 @@ export function getStatements(cst) {
                 stmts[index] = stmt[0];
                 break;
             case 'whileStatement':
-                stmts[index] = stmt[0];
+                stmts[index] = getWhileLoops(stmt);
                 break;
             default:
                 getStatements(stmts);
