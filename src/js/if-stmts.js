@@ -24,3 +24,7 @@ export function getIfStmts(cst) {
     if (ifStmtCollector.loops > 0) throw ('Too many loops in ifStmtCollector'); //For dev purposes only, delete later
     return ifStmtCollector.loops[0];
 }
+
+export function getIfStmtBigO(stmt) {
+    
+}

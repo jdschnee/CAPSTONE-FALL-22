@@ -1,9 +1,9 @@
 
 import { BaseJavaCstVisitorWithDefaults } from "java-parser";
 
-import { getForLoops } from './get-for-loops.js'
-import { getIfStmts } from "./get-if-stmts.js";
-import { getWhileLoops } from "./get-while-loops.js";
+import { getForLoops } from './for-loops.js'
+import { getIfStmts } from "./if-stmts.js";
+import { getWhileLoops } from "./while-loops.js";
 
 class StatementCollector extends BaseJavaCstVisitorWithDefaults {
     constructor() {

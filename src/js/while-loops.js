@@ -24,3 +24,7 @@ export function getWhileLoops(cst) {
     if (whileLoopCollector.loops > 0) throw ('Too many loops in whileLoopCollector'); //For dev purposes only, delete later
     return whileLoopCollector.loops[0];
 }
+
+export function getWhileLoopBigO(stmt) {
+    
+}
