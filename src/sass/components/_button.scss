@@ -1,5 +1,5 @@
 .btn {
-
+  flex: 2 1 auto;
   &:link,
   &:visited {
     font-weight: bold;
@@ -61,4 +61,11 @@
     margin: 1.5rem auto;
     border: .01rem solid rgba($primary-border-color, .3);
   }
+}
+
+.btn-flex-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
