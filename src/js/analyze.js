@@ -16,7 +16,22 @@ public class HelloWorldExample{
 function getSourceCodeBigO(javaCode) {
   const stmtTree = parseCodeToTree(javaCode);
 
-  console.log(stmtTree);
+  traverseTree(stmtTree);
+
+}
+
+function traverseTree(tree) {
+  tree.forEach(stmt => {
+    if (stmt.childStmts.length > 0) {
+      traverseTree(stmt.childStmts);
+    }
+    addStmtBigO(stmt);
+  })
+
+}
+
+function addStmtBigO(stmt) {
+  // TODO: Add logic
 }
 
 getSourceCodeBigO(javaText);
