@@ -10,7 +10,12 @@
   font-size: $root-font-size;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  position: relative;
   min-height: $body-min-height;
   background-image: $body-bg-img-color;
   box-sizing: border-box;

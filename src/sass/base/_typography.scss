@@ -53,8 +53,10 @@ body {
   // font-size: clamp(2.5rem, max(2vh, 2vw), 4rem);
   font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
   transition: all .5s;
+
+
 
   &:hover {
     letter-spacing: 1.3rem;
@@ -67,24 +69,48 @@ body {
   }
 }
 
+.tutorial-heading {
+  padding-top: min(min(6vw, 6vh), 8rem);
+  display: inline-block;
+  color: $white;
+  letter-spacing: 1rem;
+  // font-size: clamp(2.5rem, max(2vh, 2vw), 4rem);
+  font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
+  text-transform: uppercase;
+  font-weight: 800;
+  transition: all .6s;
+
+  &:hover {
+    font-weight: 900;
+    letter-spacing: 1.3rem;
+    transform: translateY(-1rem) scale(1.03);
+    text-shadow: .5rem 1rem 2rem rgba($black, .8);
+    background-image: linear-gradient(to right, white, white);
+    -webkit-background-clip: text;
+    text-decoration: underline;
+    color: transparent;
+  }
+}
+
 .heading-tertiary {
   font-size: 1.6rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   text-align: center;
-  font-size: clamp(1rem, min(3vw, 3.1vh), 6.5rem);
+  font-size: clamp(1rem, min(3.2vw, 3.3vh), 6.5rem);
+  word-wrap: break-word;
 }
 
 .paragraph {
   font-size: 1.6rem;
-  font-size: clamp(1rem, min(2vw, 2vh), 5rem);
+  font-size: clamp(.5rem, min(1.8vw, 1.8vh), 5rem);
 
   &:not(:last-child) {
     margin-bottom: min(max(4vh, 4vw), 8rem);
   }
 }
 
-.heading-calculator{
+.heading-calculator {
   border: magenta solid .1rem;
   background-color: $black;
   letter-spacing: 1.5rem;
