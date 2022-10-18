@@ -19,3 +19,12 @@ function recursiveGetLeafNodes(ctx, arr) {
         });
     })
 }
+
+export function mapTree(tree, fnc) {
+    tree.forEach(stmt => {
+        if (stmt.childStmts.length > 0) {
+            traverseTree(stmt.childStmts);
+        }
+        fnc(stmt);
+    })
+}

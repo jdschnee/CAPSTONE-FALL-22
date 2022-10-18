@@ -1,4 +1,6 @@
 import { parseCodeToTree } from "./parse-code.js";
+import { mapTree } from "./util.js";
+
 
 const javaText = `
 public class HelloWorldExample{
@@ -16,18 +18,7 @@ public class HelloWorldExample{
 function getSourceCodeBigO(javaCode) {
   const stmtTree = parseCodeToTree(javaCode);
 
-  traverseTree(stmtTree);
-
-}
-
-function traverseTree(tree) {
-  tree.forEach(stmt => {
-    if (stmt.childStmts.length > 0) {
-      traverseTree(stmt.childStmts);
-    }
-    addStmtBigO(stmt);
-  })
-
+  mapTree(stmtTree, addStmtBigO);
 }
 
 function addStmtBigO(stmt) {
