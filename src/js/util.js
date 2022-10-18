@@ -1,20 +1,18 @@
 export function getLeafNodes(ctx) {
-    const nodes = [];
+    const nodes = {};
     recursiveGetLeafNodes(ctx, nodes);
     return nodes;
 }
 
-function recursiveGetLeafNodes(ctx, arr) {
+function recursiveGetLeafNodes(ctx, obj) {
     const props = Object.getOwnPropertyNames(ctx);
     props.forEach(prop => {
         ctx[prop].forEach(elem => {
             const childCtx = elem.children;
             if (childCtx != null) {
-                recursiveGetLeafNodes(childCtx, arr);
+                recursiveGetLeafNodes(childCtx, obj);
             } else {
-                arr.push({
-                    [prop]: elem.image
-                });
+                obj[prop]= elem.image
             }
         });
     })
