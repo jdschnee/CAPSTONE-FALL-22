@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: $root-font-size;
+}
+
+body {
+  min-height: $body-min-height;
+  background-image: $body-bg-img-color;
+  box-sizing: border-box;
+  //Lines below added to make gradient not repeat for mobile devices
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
