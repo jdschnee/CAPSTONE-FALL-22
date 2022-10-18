@@ -2,6 +2,7 @@
 import { BaseJavaCstVisitorWithDefaults } from "java-parser";
 
 import { getForLoops } from './get-for-loops.js'
+import { getIfStmts } from "./get-if-stmts.js";
 import { getWhileLoops } from "./get-while-loops.js";
 
 class StatementCollector extends BaseJavaCstVisitorWithDefaults {
@@ -34,7 +35,7 @@ export function getStatements(cst) {
                 stmts[index] = getForLoops(stmt);
                 break;
             case 'ifStatement':
-                stmts[index] = stmt[0];
+                stmts[index] = getIfStmts(stmt);
                 break;
             case 'whileStatement':
                 stmts[index] = getWhileLoops(stmt);
