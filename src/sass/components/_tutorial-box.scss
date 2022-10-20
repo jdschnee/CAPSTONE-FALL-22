@@ -33,7 +33,7 @@
     user-select: none;
 
     background-color: $black;
-    transform: rotateY(-180deg) scale(1.1);
+    transform: translateY(-4vh) scale(1.1);
     color: transparent;
     text-shadow: none;
     box-shadow: 0 1.5rem 4rem rgba($black, .9);
@@ -62,22 +62,22 @@
     position: absolute;
     display: inline;
     width: 100%;
-    height: 60%;
+    height: 70%;
     object-fit: cover;
-    top: 20%;
+    top: 15%;
     left: 0;
     opacity: 0;
-    transform: rotateY(-180deg);
+    // transform: rotateY(-180deg);
   }
 
   .tutorial__photo {
     position: absolute;
-    top: 80%;
+    top: 85%;
     left: 0;
     object-fit: cover;
     width: 100%;
-    height: 20%;
+    height: 15%;
     opacity: 0;
-    transform: rotateY(-180deg);
+    // transform: rotateY(-180deg);
   }
 }
