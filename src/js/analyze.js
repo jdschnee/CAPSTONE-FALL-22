@@ -2,28 +2,27 @@ import { getForLoopBigO } from "./for-loops.js";
 import { parseCodeToTree } from "./parse-code.js";
 import { mapTree } from "./util.js";
 
-
 const javaText = `
-public class HelloWorldExample{
-  public static void main(String args[]){
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
-        for (int k = 0; k < n; k++) {}
+        for (k = 0; k < n; k++) {}
       }
     }
 
     for (int x = 0; x < n; x++) {}
-  }
-}
 `;
 
-function getSourceCodeBigO(javaCode) {
+function getSourceCodeBigO(input) {
+  let javaCode = 'public class DummyClass{ public static void main(String args[]) {';
+  javaCode += input;
+  javaCode += '}}';
+
   const stmtTree = parseCodeToTree(javaCode);
 
   mapTree(stmtTree, addStmtBigO);
 
   const res = findLargestBigO(stmtTree);
-  console.log(res);
+  return res;
 }
 
 function findLargestBigO(tree) {
