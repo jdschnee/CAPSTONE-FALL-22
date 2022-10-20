@@ -48,8 +48,9 @@ calcBtn.addEventListener('click', (event) => {
       let choice = choiceBox.querySelector('[data-number]');
       let icon = choiceBox.querySelector("i");
       let answer = choiceBox.querySelector(".choice-text");
+      console.log(answer, result);
 
-      if (choice.innerText == result) {
+      if (answer.innerHTML === toSup(result)) {
         icon.classList.add("icon-basic-cup", "choice-icon");
         choiceBox.style.backgroundColor = 'rgba(0,255,0,.9)';
         choiceBox.style.borderColor = 'black';
@@ -60,6 +61,7 @@ calcBtn.addEventListener('click', (event) => {
           for (const answer of choiceContainers) {
             answer.remove();
           }
+
           divQuestion.innerText = "Congrats, you found the correct answer!";
         });
       } else {
@@ -91,3 +93,5 @@ function toSup(str) {
   str.splice(idx, 2, str[idx+1].sup());
   return str.join("");
 }
+
+

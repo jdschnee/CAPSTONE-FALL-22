@@ -3,13 +3,15 @@ function pause() {
   video.contentWindow.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*');
 }
 let video = document.getElementById("tutorial-video-1")
-tutorialBox = document.querySelector(".tutorial-box")
+tutorialBoxes = document.querySelectorAll(".tutorial-box")
 
-tutorialBox.addEventListener('mouseout', (event) => {
-  // pause();
-  stopVideo();
+for (let tutorialBox of tutorialBoxes) {
+  tutorialBox.addEventListener('mouseout', (event) => {
+    // pause();
+    stopVideo();
 
-})
+  })
+}
 
 function stopVideo() {
   // getting every iframe from the body
