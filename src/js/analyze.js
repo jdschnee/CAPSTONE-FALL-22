@@ -22,7 +22,7 @@ function getSourceCodeBigO(input) {
   mapTree(stmtTree, addStmtBigO);
 
   const res = findLargestBigO(stmtTree);
-  return res;
+  return "O(N^" + result + ")";;
 }
 
 function findLargestBigO(tree) {
