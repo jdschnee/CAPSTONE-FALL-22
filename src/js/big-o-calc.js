@@ -1,6 +1,3 @@
-import { getSourceCodeBigO } from "./analyze.js";
-
-
 var result;
 var resultSet;
 
@@ -13,7 +10,7 @@ getBigOBtn.onclick = function() {
     var code = codeInput.value.trim();
     
     // now parse the text
-    result = getSourceCodeBigO(code);
+    result = parseInput(code);
     
     //creates quiz
     resultSet = createQuiz(result);
