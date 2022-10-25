@@ -1,6 +1,6 @@
 calcBtn = document.querySelector(".btn--calculator");
 
-calcBtn.addEventListener('click', (event) => {
+function showQuiz(resultSet, result) {
   const calcSection = document.querySelector("#calculator-section")
   let quizSection = document.querySelector(".quiz-section");
 
@@ -82,7 +82,7 @@ calcBtn.addEventListener('click', (event) => {
 
 
 
-})
+}
 
 function toSup(str) {
   idx = str.indexOf("^");
