@@ -1,23 +1,30 @@
-var result;
-var resultSet;
-
-
 // when button is clicked, gets the text from the text area:
 var getBigOBtn = document.getElementById("calculate-btn");
 console.log(getBigOBtn);
 getBigOBtn.onclick = function() {
     var codeInput = document.getElementById("editor")
     var code = codeInput.value.trim();
-    
-    // now parse the text
-    result = parseInput(code);
-    
-    //creates quiz
-    resultSet = createQuiz(result);
+    code = code.replace( /\r?\n|\r/g, "" );
 
-    // set the result
-    // var resultShow = document.getElementById("resultShow");
-    // resultShow.innerHTML = result;
+    processUserCode(code);
+}
+
+function processUserCode(code) {
+    let url = 'https://rl43w8txr4.execute-api.us-east-1.amazonaws.com/getBigO'
+    const data = { "code": code }
+    
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    })
+    .then(data => {return data.json()})
+    .then(result => { 
+        createQuiz(result);
+    })
+
 }
 
 function createQuiz(result){
@@ -40,8 +47,7 @@ function createQuiz(result){
             quizArr[i] = arr[i]
         }
     }
-    return quizArr;
-    
+    showQuiz(quizArr, result);
 }
 
 function shuffle(array) {
