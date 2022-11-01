@@ -10,6 +10,8 @@
 @import "components/button";
 @import "components/composition";
 @import "components/code-box";
+@import "components/quiz-code-box";
+@import "components/quiz-general";
 @import "components/quiz.scss";
 @import "components/tutorial-box";
 
@@ -20,6 +22,6 @@
 @import "layout/section";
 
 @import "pages/home";
-
-
+@import "pages/quiz-game";
+@import "pages/quiz-score";
 
