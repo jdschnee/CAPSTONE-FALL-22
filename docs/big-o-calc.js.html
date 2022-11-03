@@ -1,4 +1,32 @@
-// when button is clicked, gets the text from the text area:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: big-o-calc.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: big-o-calc.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// when button is clicked, gets the text from the text area:
 var getBigOBtn = document.getElementById("calculate-btn");
 console.log(getBigOBtn);
 getBigOBtn.onclick = function() {
@@ -36,7 +64,7 @@ function createQuiz(result){
     let newValue = bigOValues.filter(x => x != result);
     
     let quizArr = []
-    for(let i = 0; i < 4; i++)
+    for(let i = 0; i &lt; 4; i++)
     {
         quizArr.push("");
     }
@@ -44,7 +72,7 @@ function createQuiz(result){
     let randomIndex = Math.floor(Math.random() * 4);
     quizArr[randomIndex] = result;
     let arr = shuffle(newValue);
-    for(let i = 0; i < 4; i++)
+    for(let i = 0; i &lt; 4; i++)
     {
         if(quizArr[i] != result)
         {
@@ -81,7 +109,7 @@ function parseInput(code) {
     return result;
 }
 
-const comparisonOperators = [">", "<", ">=", "<=", "==", "!="]
+const comparisonOperators = [">", "&lt;", ">=", "&lt;=", "==", "!="]
 const operations = ["+=", "-=", "/=", "*=", "++", "--", "="]
 const arithOperations = ["+", "-", "/", "*"]
 
@@ -95,10 +123,10 @@ const arithOperations = ["+", "-", "/", "*"]
 function getBiggestBigOString(bigOStrings) {
     var numberNsList = [];
     var maxNs = 0;
-    for(var i = 0; i < bigOStrings.length; i++) {
+    for(var i = 0; i &lt; bigOStrings.length; i++) {
         var bigOStr = bigOStrings[i];
         var numberNs = 0;
-        for(var k = 0; k < bigOStr.length; k++) {
+        for(var k = 0; k &lt; bigOStr.length; k++) {
             var c = bigOStr[k];
             if (c == 'N') {
                 numberNs++;
@@ -114,7 +142,7 @@ function getBiggestBigOString(bigOStrings) {
 
 
     topBigNStrings = [];
-    for(var i = 0; i < numberNsList.length; i++) {
+    for(var i = 0; i &lt; numberNsList.length; i++) {
         if(numberNsList[i] == maxNs) {
             topBigNStrings.push(bigOStrings[i]);
         }
@@ -129,10 +157,10 @@ function getBiggestBigOString(bigOStrings) {
     // if not, check the next criteria of logs
     var maxLsIndex = 0;
     var maxLsCount = 0;
-    for(var i = 0; i < topBigNStrings.length; i++) {
+    for(var i = 0; i &lt; topBigNStrings.length; i++) {
         var str = topBigNStrings[i];
         var LsCount = 0;
-        for(var k = 0; k < str.length; k++) {
+        for(var k = 0; k &lt; str.length; k++) {
             var c = str[k];
             if(c == 'L') {
                 LsCount++;
@@ -154,7 +182,7 @@ function translateBigOStringToBigO(bigOString) {
     var nCount = 0;
     var lCount = 0;
 
-    for(var i = 0; i < bigOString.length; i++) {
+    for(var i = 0; i &lt; bigOString.length; i++) {
         var c = bigOString[i];
         if (c == 'N') {
             nCount++;
@@ -183,7 +211,7 @@ function translateBigOStringToBigO(bigOString) {
         }
     }
 
-    if(nCount == 0 && lCount == 0) {
+    if(nCount == 0 &amp;&amp; lCount == 0) {
         res += "1";
     }
 
@@ -267,7 +295,7 @@ function evaluateForStatement(forLine) {
 
     // read range stop
     var rangeStop;
-    for(var i = 0; i < comparisonOperators.length; i++) {
+    for(var i = 0; i &lt; comparisonOperators.length; i++) {
         let op = comparisonOperators[i];
         if(range.indexOf(op) > -1) {
             let rangeStopSplit = range.split(op);
@@ -278,7 +306,7 @@ function evaluateForStatement(forLine) {
 
     // read operation
     var operationDone;
-    for(var i = 0; i < operations.length; i++) {
+    for(var i = 0; i &lt; operations.length; i++) {
         let op = operations[i];
         if(operation.indexOf(op) > -1) {
             if(op === "=") {
@@ -387,12 +415,12 @@ function getBigONotation(forStatements) {
     var bigOList = [];
     var hasError = false;
     var isLazy = false;
-    for(var i = 0; i < val_results.length; i++) {
+    for(var i = 0; i &lt; val_results.length; i++) {
         let val_result = val_results[i];
         let eval = val_result['eval'];
         let level = val_result['level'];
 
-        if(i != 0 && level == 1) {
+        if(i != 0 &amp;&amp; level == 1) {
             bigOList.push(bigOString);
             bigOString = "";
         }
@@ -433,4 +461,26 @@ function getBigONotation(forStatements) {
 
     return finalResult;
 
-}
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#createQuiz">createQuiz</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Nov 03 2022 14:33:18 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
