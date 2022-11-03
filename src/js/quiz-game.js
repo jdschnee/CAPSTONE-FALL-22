@@ -11,103 +11,127 @@ let questionCounter = 0
 let availableQuestions = []
 
 let questions = [
-    {
-        question: 'What is 2 + 2?',
-        choice1: '2',
-        choice2: '4',
-        choice3: '21',
-        choice4: '17',
-        answer: 2,
-    },
-    {
-        question:
-            "The tallest building in the world is located in which city?",
-        choice1: "Dubai",
-        choice2: "New York",
-        choice3: "Shanghai",
-        choice4: "None of the above",
-        answer: 1,
-    },
-    {
-        question: "What percent of American adults believe that chocolate milk comes from brown cows?",
-        choice1: "20%",
-        choice2: "18%",
-        choice3: "7%",
-        choice4: "33%",
-        answer: 3,
-    },
-    {
-        question: "Approximately what percent of U.S. power outages are caused by squirrels?",
-        choice1: "10-20%",
-        choice2: "5-10%",
-        choice3: "15-20%",
-        choice4: "30%-40%",
-        answer: 1,
-    }
+  {
+    question: 'What is the correct run-time complexity?',
+    snippet: `for(int i = 0; i < n; i++){
+
+}`,
+    choiceArr: ['O(N)', 'O(logN)', 'O(N^2)', 'O(N^3)'],
+    answer: 'O(N)',
+  },
+  {
+    question: "What is the correct run-time complexity?",
+    snippet: `for(int i = 0; i < 10; i++)
+{
+	System.out.println("i = " + i);
+}`,
+    choiceArr: ['O(1)', 'O(N)', 'O(NlogN)', 'None of the answers are correct'],
+    answer: 'O(1)',
+  },
+  {
+    question: "What's the run-time complexity for the following sorting method?",
+    snippet: `bubbleSort(int array[]) {
+  int size = array.length;
+    
+  // loop to access each array element
+  for (int i = 0; i < size - 1; i++)
+    
+    // loop to compare array elements
+    for (int j = 0; j < size - i - 1; j++)
+
+      // compare two adjacent elements
+      // change > to < to sort in descending order
+      if (array[j] > array[j + 1]) {
+
+        // swapping occurs if elements
+        // are not in the intended order
+        int temp = array[j];
+        array[j] = array[j + 1];
+        array[j + 1] = temp;
+      }`,
+    choiceArr: ['O(N^2)', 'O(N)', 'O(NlogN)', 'O(N^3)'],
+    answer: 'O(N^2)',
+  },
+  {
+    question: "What is the correct run-time complexity?",
+    snippet: `for (int i = 1; i < n; i = i * 2){
+  System.out.println("Hey - I'm busy looking at: " + i);
+}`,
+    choiceArr: ['O(logN)', 'O(N^2)', 'O(N)', 'O(NlogN)'],
+    answer: 'O(logN)',
+  }
 ]
 
 const SCORE_POINTS = 25
 const MAX_QUESTIONS = 4
 
 startGame = () => {
-    questionCounter = 0
-    score = 0
-    availableQuestions = [...questions]
-    getNewQuestion()
+  questionCounter = 0
+  score = 0
+  availableQuestions = [...questions]
+  getNewQuestion()
 }
 
 getNewQuestion = () => {
-    if(availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
-        localStorage.setItem('mostRecentScore', score)
+  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+    localStorage.setItem('mostRecentScore', score)
 
-        return window.location.assign('/quiz-complete.html')
-    }
+    return window.location.assign('/quiz-complete.html')
+  }
 
-    questionCounter++
-    progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
-    progressBarFull.style.width = `${(questionCounter/MAX_QUESTIONS) * 100}%`
-    
-    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
-    currentQuestion = availableQuestions[questionsIndex]
-    question.innerText = currentQuestion.question
+  questionCounter++
+  progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
+  progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`
 
-    choices.forEach(choice => {
-        const number = choice.dataset['number']
-        choice.innerText = currentQuestion['choice' + number]
-    })
+  const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+  currentQuestion = availableQuestions[questionsIndex]
+  question.innerText = currentQuestion.question
 
-    availableQuestions.splice(questionsIndex, 1)
+  // add code for inserting snippet into text area
+  let codeEditor = document.querySelector('textarea');
+  codeEditor.value = currentQuestion.snippet;
 
-    acceptingAnswers = true
+  currentQuestion.choiceArr = shuffle(currentQuestion.choiceArr);
+  choices.forEach(choice => {
+    const number = choice.dataset['number']
+    // choice.innerText = currentQuestion['choice' + number]
+    choice.innerHTML = toSup(currentQuestion.choiceArr[number-1]);
+  })
+
+  availableQuestions.splice(questionsIndex, 1)
+
+  acceptingAnswers = true
 }
 
 choices.forEach(choice => {
-    choice.addEventListener('click', e => {
-        if(!acceptingAnswers) return
+  choice.addEventListener('click', e => {
+    if (!acceptingAnswers) return
 
-        acceptingAnswers = false
-        const selectedChoice = e.target
-        const selectedAnswer = selectedChoice.dataset['number']
+    acceptingAnswers = false
+    const selectedChoice = e.target
+    // const selectedAnswer = selectedChoice.dataset['number']
+    const selectedAnswer = selectedChoice.innerHTML;
+    console.log(selectedAnswer)
 
-        let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
+    let classToApply = selectedAnswer == toSup(currentQuestion.answer) ? 'correct' : 'incorrect'
 
-        if(classToApply === 'correct') {
-            incrementScore(SCORE_POINTS)
-        }
+    if (classToApply === 'correct') {
+      incrementScore(SCORE_POINTS)
+    }
 
-        selectedChoice.parentElement.classList.add(classToApply)
+    selectedChoice.parentElement.classList.add(classToApply)
 
-        setTimeout(() => {
-            selectedChoice.parentElement.classList.remove(classToApply)
-            getNewQuestion()
+    setTimeout(() => {
+      selectedChoice.parentElement.classList.remove(classToApply)
+      getNewQuestion()
 
-        }, 500)
-    })
+    }, 500)
+  })
 })
 
 incrementScore = num => {
-    score +=num
-    scoreText.innerText = score
+  score += num
+  scoreText.innerText = score
 }
 
 startGame()
