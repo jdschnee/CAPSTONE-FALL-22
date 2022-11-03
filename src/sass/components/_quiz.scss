@@ -1,7 +1,8 @@
 .quiz-section {
-
+ position: relative;
   margin: 5vw;
   margin-top: 0;
+  margin-bottom: 10rem;
   padding-bottom: 30vh;
 
   .question {
@@ -39,6 +40,8 @@
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
       border-left: .01rem solid $primary-border-color;
+      // height: 100%;
+      width: 110%;
     }
 
     .choice-icon {
