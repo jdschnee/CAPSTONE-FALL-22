@@ -11,21 +11,25 @@ let decrement;
 
 const timer = new Timer(startBtn, pauseBtn, duration, {
   onStart() {
-    console.log('Timer Started')
+    // console.log('Timer Started')
     currentOffset = 0;
     circle.setAttribute('stroke', '#0bdf24');
     decrement = perimeter / (duration.value / .01);
     currentOffset -= decrement;
   },
   onTick() {
-    console.log('Timer Ticked')
+    // console.log('Timer Ticked')
     circle.setAttribute('stroke-dashoffset', currentOffset);
     currentOffset -= decrement;
   },
   onComplete() {
     circle.setAttribute('stroke', 'red');
     circle.setAttribute('stroke-dashoffset', 0);
-    console.log('Timer Completed');
+    // console.log('Timer Completed');
+
+    localStorage.setItem('mostRecentScore', score);
+    setTimeout(() => window.location.href="/quiz-complete.html",
+    2000)
   }
 });
    
