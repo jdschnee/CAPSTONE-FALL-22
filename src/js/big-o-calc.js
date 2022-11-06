@@ -9,6 +9,11 @@ getBigOBtn.onclick = function() {
     processUserCode(code);
 }
 
+/**
+ * Big O API parses the code and returns the Big-O complexity. A multiple choice question is generated
+ * with the correct answer being the calculated Big-O complexity.
+ * @param {*} code - The code entered in the code box
+ */
 function processUserCode(code) {
     let url = 'https://rl43w8txr4.execute-api.us-east-1.amazonaws.com/getBigO'
     const data = { "code": code }
@@ -53,6 +58,11 @@ function createQuiz(result) {
     showQuiz(quizArr, result);
 }
 
+/**
+ * Randomly orders the multiple-choice answers
+ * @param {*} array - The multiple choice answers
+ * @returns - the array in random order
+ */
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;
 
