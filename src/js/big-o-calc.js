@@ -1,6 +1,7 @@
-// when button is clicked, gets the text from the text area:
+/**
+ * The calculate button. Retrieves the code from the code box and processes it when clicked.
+ */
 var getBigOBtn = document.getElementById("calculate-btn");
-console.log(getBigOBtn);
 getBigOBtn.onclick = function() {
     var codeInput = document.getElementById("editor")
     var code = codeInput.value.trim();

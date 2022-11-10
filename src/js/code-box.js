@@ -6,6 +6,10 @@ let codeEditor = document.querySelector('.code-editor');
 let lineCounter = document.querySelector('.line-counter');
 
 let lineCountCache = 0;
+
+/**
+ * Updates the line count on the side of the code box
+ */
 function line_counter() {
 	let lineCount = codeEditor.value.split('\n').length;
 	let outarr = new Array();

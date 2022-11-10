@@ -1,4 +1,14 @@
+/**
+ * Class for the timer used in the quiz
+ */
 class Timer {
+  /**
+   * Create a timer
+   * @param {*} startBtn - The start button
+   * @param {*} pauseBtn - The pause button
+   * @param {*} duration - The time duration of the timer in seconds
+   * @param {*} callbacks - Callback functions to be called when the timer starts, ticks, and completes
+   */
   constructor(startBtn, pauseBtn, duration, callbacks) {
     this.startBtn = startBtn;
     this.pauseBtn = pauseBtn;
@@ -17,6 +27,9 @@ class Timer {
     // this.interval = 10;
   }
 
+  /**
+   * The time remaining on the timer
+   */
   get timeRemaining() {
     return parseFloat(this.duration.value);
   }
@@ -25,10 +38,16 @@ class Timer {
     this.duration.value = time.toFixed(2);
   }
 
+  /**
+   * Decrements the remaining time
+   */
   decrementTimeRemaining = () => {
     this.timeRemaining = this.timeRemaining - (this.interval * .001);
   }
 
+  /**
+   * Starts the timer
+   */
   start = () => {
     this.interval = 10;
     if (this.onStart) {
@@ -47,6 +66,9 @@ class Timer {
     
   }
 
+  /**
+   * Calls onTick and decrements the remaining time on each tick
+   */
   tick = () => {
     console.log('inside tick', this.timeRemaining)
     if (parseFloat(this.duration.value) > 0) {
@@ -63,6 +85,9 @@ class Timer {
 
   }
 
+  /**
+   * Pauses the timer
+   */
   pause = () => {
     clearInterval(this.intervalId)
   }

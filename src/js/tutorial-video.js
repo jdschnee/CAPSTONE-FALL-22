@@ -1,3 +1,6 @@
+/**
+ * Pauses the video
+ */
 function pause() {
   let video = document.getElementById("tutorial-video-1")
   video.contentWindow.postMessage('{"event":"command", "func":"pauseVideo", "args":""}', '*');
@@ -13,6 +16,9 @@ for (let tutorialBox of tutorialBoxes) {
   })
 }
 
+/**
+ * Stops the YouTube video
+ */
 function stopVideo() {
   // getting every iframe from the body
   var iframes = document.querySelectorAll('iframe');

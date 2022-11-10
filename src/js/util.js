@@ -1,3 +1,8 @@
+/**
+ * Randomly reorders an array
+ * @param {*} array - The array to be reordered
+ * @returns - The array in random order
+ */
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;
 
@@ -16,6 +21,11 @@ function shuffle(array) {
   return array;
 }
 
+/**
+ * Remove ^ character and surround the exponent html superscript tag instead
+ * @param {*} str - The Big-O complexity
+ * @returns - str with ^ removed and the exponent surrounded with an html superscript tag
+ */
 function toSup(str) {
   idx = str.indexOf("^");
   if (idx === -1) {
