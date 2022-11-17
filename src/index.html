@@ -13,6 +13,25 @@
   <script src="js/big-o-calc.js" defer></script>
   <script src="js/quiz.js" defer></script>
   <script src="js/code-box.js" defer></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyA-JY9RhZ-eFumz1lc66yEtv-o02RZ5oO4",
+      authDomain: "capstonefall2022.firebaseapp.com",
+      projectId: "capstonefall2022",
+      storageBucket: "capstonefall2022.appspot.com",
+      messagingSenderId: "460620865364",
+      appId: "1:460620865364:web:118e91d2fffd29369ff2c1"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
   <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 
   <title>MAVERICK | Run-time Complexity Calculator</title>
