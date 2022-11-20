@@ -60,6 +60,7 @@ function showQuiz(resultSet, result) {
       if (answer.innerHTML === toSup(result)) {
         icon.classList.add("icon-basic-cup", "choice-icon");
         choiceBox.style.backgroundColor = 'rgba(0,255,0,.9)';
+        answer.setAttribute('value','true');
         choiceBox.style.borderColor = 'black';
         choice.style.borderColor = 'black'
         choiceBox.style.color = 'black';
@@ -74,6 +75,7 @@ function showQuiz(resultSet, result) {
       } else {
         icon.classList.add("icon-basic-trashcan", "choice-icon");
         choiceBox.style.backgroundColor = 'rgba(255,0,0,.9)';
+        answer.setAttribute('value','false');
         choiceBox.style.borderColor = 'black';
         choice.style.borderColor = 'black'
         choiceBox.style.color = 'black';
