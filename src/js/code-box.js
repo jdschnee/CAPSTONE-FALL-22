@@ -1,6 +1,6 @@
-let htmlTemplateStr = `for(int i = 0; i < n; i++){
+// let htmlTemplateStr = `for(int i = 0; i < n; i++){
 
-}`;
+// }`;
 
 let codeEditor = document.querySelector('.code-editor');
 let lineCounter = document.querySelector('.line-counter');
@@ -47,5 +47,5 @@ codeEditor.addEventListener('keydown', (e) => {
 	}
 });
 
-codeEditor.value = htmlTemplateStr;
+// codeEditor.value = htmlTemplateStr;
 line_counter();
