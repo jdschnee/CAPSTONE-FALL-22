@@ -1,7 +1,3 @@
-// let htmlTemplateStr = `for(int i = 0; i < n; i++){
-
-// }`;
-
 let codeEditor = document.querySelector('.code-editor');
 let lineCounter = document.querySelector('.line-counter');
 
@@ -35,17 +31,17 @@ codeEditor.addEventListener('input', () => {
 	line_counter();
 });
 
-codeEditor.addEventListener('keydown', (e) => {
-	let { keyCode } = e;
-	let { value, selectionStart, selectionEnd } = codeEditor;
-
-	if (keyCode === 9) {
-		// TAB = 9
-		e.preventDefault();
-		codeEditor.value = value.slice(0, selectionStart) + '\t' + value.slice(selectionEnd);
-		codeEditor.setSelectionRange(selectionStart + 2, selectionStart + 2);
-	}
+// add capability to tab in codeEditor
+codeEditor.addEventListener('keydown', function(e) {
+  if (e.key == 'Tab') {
+    e.preventDefault();
+    var start = this.selectionStart;
+    var end = this.selectionEnd;
+    this.value = this.value.substring(0, start) +
+      "\t" + this.value.substring(end);
+    this.selectionStart =
+      this.selectionEnd = start + 1;
+  }
 });
 
-// codeEditor.value = htmlTemplateStr;
 line_counter();
