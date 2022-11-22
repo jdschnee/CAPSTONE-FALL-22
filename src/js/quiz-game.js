@@ -120,7 +120,7 @@ let questions = [
 }`,
     choiceArr: ['O(logN)', 'O(N^2)', 'O(N)', 'O(NlogN)'],
     answer: 'O(logN)',
-  },,
+  },
   {
     question: "What is the correct run-time complexity?",
     snippet: `public boolean containsNumber(List<Integer> numbers, int comparisonNumber) {
@@ -150,11 +150,11 @@ let questions = [
 }`,
     choiceArr: ['O(logN)', 'O(N)', 'O(NlogN)', 'None of the answers are correct'],
     answer: 'O(NlogN)',
-  },
+  }
 ]
 
-const SCORE_POINTS = 25
-const MAX_QUESTIONS = 4
+const POINTS_PER_Q = 25
+const TOTAL_QUESTIONS = 4
 
 startGame = () => {
   questionCounter = 0
@@ -164,15 +164,15 @@ startGame = () => {
 }
 
 getNewQuestion = () => {
-  if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+  if (availableQuestions.length === 0 || questionCounter >= TOTAL_QUESTIONS){
     localStorage.setItem('mostRecentScore', score)
 
     return window.location.assign('/quiz-complete.html')
   }
 
   questionCounter++
-  progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
-  progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`
+  progressText.innerText = `Question ${questionCounter} of ${TOTAL_QUESTIONS}`
+  progressBarFull.style.width = `${(questionCounter / TOTAL_QUESTIONS) * 100}%`
 
   const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
   currentQuestion = availableQuestions[questionsIndex]
@@ -185,11 +185,14 @@ getNewQuestion = () => {
   currentQuestion.choiceArr = shuffle(currentQuestion.choiceArr);
   choices.forEach(choice => {
     const number = choice.dataset['number']
+    console.log("******"+ number)
     // choice.innerText = currentQuestion['choice' + number]
     choice.innerHTML = toSup(currentQuestion.choiceArr[number-1]);
   })
 
+  console.log("$$$$" + availableQuestions);
   availableQuestions.splice(questionsIndex, 1)
+  console.log("$$$$" + availableQuestions);
 
   acceptingAnswers = true
 }
@@ -207,7 +210,7 @@ choices.forEach(choice => {
     let classToApply = selectedAnswer == toSup(currentQuestion.answer) ? 'correct' : 'incorrect'
 
     if (classToApply === 'correct') {
-      incrementScore(SCORE_POINTS)
+      incrementScore(POINTS_PER_Q)
     }
 
     selectedChoice.parentElement.classList.add(classToApply)
