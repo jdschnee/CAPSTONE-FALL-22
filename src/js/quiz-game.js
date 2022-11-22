@@ -10,14 +10,38 @@ let score = 0
 let questionCounter = 0
 let availableQuestions = []
 
-/**
- * Hard-coded example questions.
- * @property {string} question - The question text
- * @property {string }snippet - The example code snippet
- * @property {string} choiceArr - An array of possible answers
- * @property {string} answer - The correct answer
- */
 let questions = [
+  {
+    question: "What is the correct run-time complexity?",
+    snippet: `public boolean containsNumber(List<Integer> numbers, int comparisonNumber) {
+  for(Integer number : numbers) {
+    if(number == comparisonNumber) {
+      return true;
+    }
+  }
+  return false;
+}`,
+    choiceArr: ['O(1)', 'O(N)', 'O(NlogN)', 'None of the answers are correct'],
+    answer: 'O(N)',
+  },
+  {
+    question: "What is the correct run-time complexity?",
+    snippet: `static int search(int arr[], int size, int key)
+{
+	if (size == 0) {
+		return -1;
+	}
+	else if (arr[size - 1] == key) {
+		// Return the index of found key.
+		return size - 1;
+	}
+	else {
+		return search(arr, size - 1, key);
+	}
+}`,
+    choiceArr: ['O(N^2)', 'O(N)', 'O(1)', 'None of the answers are correct'],
+    answer: 'O(N)',
+  },
   {
     question: 'What is the correct run-time complexity?',
     snippet: `for(int i = 0; i < n; i++){
@@ -25,6 +49,12 @@ let questions = [
 }`,
     choiceArr: ['O(N)', 'O(logN)', 'O(N^2)', 'O(N^3)'],
     answer: 'O(N)',
+  },
+  {
+    question: "What is the correct run-time complexity?",
+    snippet: `System.out.println("Hello World!");`,
+    choiceArr: ['O(1)', 'O(N)', 'O(NlogN)', 'None of the answers are correct'],
+    answer: 'O(1)',
   },
   {
     question: "What is the correct run-time complexity?",
@@ -36,8 +66,32 @@ let questions = [
     answer: 'O(1)',
   },
   {
+    question: "What is the correct run-time complexity?",
+    snippet: `for(int i = 0; i < 10; i++)
+{
+	for(int j = 0; j < 100; j++)
+	{
+		System.out.println("Hello World");
+	}
+}`,
+    choiceArr: ['O(1)', 'O(N^2)', 'O(NlogN)', 'None of the answers are correct'],
+    answer: 'O(1)',
+  },
+  {
+    question: "What is the correct run-time complexity?",
+    snippet: `for(int i = 0; i < n; i++)
+{
+	for(int j = 0; j < n; j++)
+	{
+		System.out.println("Hello World");
+	}
+}`,
+    choiceArr: ['O(N^2)', 'O(N)', 'O(NlogN)', 'None of the answers are correct'],
+    answer: 'O(N^2)',
+  },
+  {
     question: "What's the run-time complexity for the following sorting method?",
-    snippet: `bubbleSort(int array[]) {
+    snippet: `sort(int array[]) {
   int size = array.length;
     
   // loop to access each array element
@@ -66,15 +120,42 @@ let questions = [
 }`,
     choiceArr: ['O(logN)', 'O(N^2)', 'O(N)', 'O(NlogN)'],
     answer: 'O(logN)',
+  },,
+  {
+    question: "What is the correct run-time complexity?",
+    snippet: `public boolean containsNumber(List<Integer> numbers, int comparisonNumber) {
+  int low = 0;
+  int high = numbers.size() - 1;
+  while (low <= high) {
+    int middle = low + (high - low) / 2;
+    if (comparisonNumber < numbers.get(middle)) {
+      high = middle - 1;
+    } else if (comparisonNumber > numbers.get(middle)) {
+      low = middle + 1;
+    } else {
+      return true;
+    }
   }
+  return false;
+}`,
+    choiceArr: ['O(logN)', 'O(N)', 'O(NlogN)', 'None of the answers are correct'],
+    answer: 'O(logN)',
+  },
+  {
+    question: "What is the correct run-time complexity?",
+    snippet: `for (int i = 1; i <= n; i++){
+    for(int j = 1; j < n; j = j * 2) {
+        System.out.println("Hey - I'm busy looking at: " + i + " and " + j);
+    }
+}`,
+    choiceArr: ['O(logN)', 'O(N)', 'O(NlogN)', 'None of the answers are correct'],
+    answer: 'O(NlogN)',
+  },
 ]
 
 const SCORE_POINTS = 25
 const MAX_QUESTIONS = 4
 
-/**
- * Begins the quiz by resetting the score and question counter
- */
 startGame = () => {
   questionCounter = 0
   score = 0
@@ -82,10 +163,6 @@ startGame = () => {
   getNewQuestion()
 }
 
-/**
- * If the user has completed the maximum number of questions, takes them to the quiz-complete screen to save their score.
- * Otherwise, displays the next question and update the progress bar.
- */
 getNewQuestion = () => {
   if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
     localStorage.setItem('mostRecentScore', score)
@@ -143,10 +220,6 @@ choices.forEach(choice => {
   })
 })
 
-/**
- * Increases the score by num
- * @param {*} num - The amount to increase the score by
- */
 incrementScore = num => {
   score += num
   scoreText.innerText = score
