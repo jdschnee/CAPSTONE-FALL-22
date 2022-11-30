@@ -1,14 +1,38 @@
 .code-editor,
-.line-counter {
+.line-counter,
+.backdrop {
   height: 50vh;
   resize: none;
 }
 
-.code-editor {
+.code-editor,
+.backdrop {
   width: 94%;
   border: .1rem solid $primary-border-color;
   // border-top-right-radius: 2em;
   border-bottom-right-radius: 2em;
+}
+
+.code-editor {
+  background-color: transparent;
+  z-index: 2;
+}
+
+.backdrop{
+  background-color: white;
+  z-index: -999;
+  position:absolute;
+}
+
+mark {
+  border-radius: 3px;
+  color: transparent;
+  background-color: red;
+}
+
+.highlights{
+  position: absolute;
+  left: 4%;
 }
 
 .line-counter {
@@ -20,7 +44,8 @@
 
 }
 
-.code-box {
+.code-box, 
+.backdrop {
   // margin-top: -11vh;
   @media (max-width: 40px) {
     margin: 0;

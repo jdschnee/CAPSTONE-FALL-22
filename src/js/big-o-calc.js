@@ -28,6 +28,11 @@ function processUserCode(code) {
     })
     .then(data => {return data.json()})
     .then(result => { 
+      let unsupported = result.unsupported;
+      for(let i = 0; i < unsupported.length; i++)
+      {
+        highlight(unsupported[i].start, unsupported[i].end);
+      }
       createQuiz(result.result);
     })
 
@@ -80,4 +85,12 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+function highlight(start, end) {
+  let codeInput = document.getElementById("editor");
+  let highlights = document.querySelector('.highlights');
+  let code = codeInput.value;
+  code = [code.slice(0, start), "<mark>", code.slice(start, end), "</mark>", code.slice(end)].join('');
+  highlights.innerHTML = code;
 }

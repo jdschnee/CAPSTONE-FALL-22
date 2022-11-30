@@ -30,7 +30,8 @@ body {
 }
 
 .code-editor,
-.line-counter {
+.line-counter,
+.highlights {
   font-size: 1.6rem;
   line-height: 1.2;
   padding: .3rem;
@@ -43,6 +44,10 @@ body {
 
 .code-box {
   color: $black;
+}
+
+.highlights {
+  color: transparent;
 }
 
 .heading-secondary {

@@ -1,5 +1,6 @@
 let codeEditor = document.querySelector('.code-editor');
 let lineCounter = document.querySelector('.line-counter');
+let highlights = document.querySelector('.highlights');
 
 let lineCountCache = 0;
 
