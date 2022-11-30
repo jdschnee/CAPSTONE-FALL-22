@@ -25,10 +25,13 @@ lineCounter.addEventListener('click', () => {
 
 codeEditor.addEventListener('scroll', () => {
 	lineCounter.scrollTop = codeEditor.scrollTop;
+	highlights.scrollTop = codeEditor.scrollTop;
 	lineCounter.scrollLeft = codeEditor.scrollLeft;
+	highlights.scrollLeft = codeEditor.scrollLeft;
 });
 
 codeEditor.addEventListener('input', () => {
+	highlights.innerHTML = codeEditor.value;
 	line_counter();
 });
 

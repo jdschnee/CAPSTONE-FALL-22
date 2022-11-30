@@ -29,10 +29,8 @@ function processUserCode(code) {
     .then(data => {return data.json()})
     .then(result => { 
       let unsupported = result.unsupported;
-      for(let i = 0; i < unsupported.length; i++)
-      {
-        highlight(unsupported[i].start, unsupported[i].end);
-      }
+      //let unsupported = [ { start: 0, end: 3 }, {start: 7, end: 9} ]
+      highlight(unsupported);
       createQuiz(result.result);
     })
 
@@ -87,10 +85,29 @@ function shuffle(array) {
   return array;
 }
 
-function highlight(start, end) {
-  let codeInput = document.getElementById("editor");
+function highlight(unsupported) {
   let highlights = document.querySelector('.highlights');
-  let code = codeInput.value;
-  code = [code.slice(0, start), "<mark>", code.slice(start, end), "</mark>", code.slice(end)].join('');
+  let code = highlights.innerHTML;
+  if(code === "")
+  {
+    code = document.getElementById("editor").value;
+  }
+  if(code.includes("<mark>")) {
+    highlights.innerHTML = code;
+    return;
+  }
+  let insertions = [];
+  for(let i in unsupported)
+  {
+    insertions.push({location: unsupported[i].start, val: "<mark>"});
+    insertions.push({location: unsupported[i].end, val: "</mark>"});
+  }
+  insertions.sort(function(a, b) {
+    return b.location - a.location;
+  });
+  for(let i in insertions)
+  {
+    code = code.substring(0, insertions[i].location) + insertions[i].val + code.substring(insertions[i].location);
+  }
   highlights.innerHTML = code;
 }
