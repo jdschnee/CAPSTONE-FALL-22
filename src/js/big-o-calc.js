@@ -28,7 +28,7 @@ function processUserCode(code) {
     })
     .then(data => {return data.json()})
     .then(result => { 
-        createQuiz(result);
+      createQuiz(result.result);
     })
 
 }
