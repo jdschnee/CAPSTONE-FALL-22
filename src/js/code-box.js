@@ -1,7 +1,7 @@
 let codeEditor = document.querySelector('.code-editor');
 let lineCounter = document.querySelector('.line-counter');
 let highlights = document.querySelector('.highlights');
-
+let backdrop = document.querySelector('.backdrop');
 let lineCountCache = 0;
 
 /**
@@ -25,13 +25,13 @@ lineCounter.addEventListener('click', () => {
 
 codeEditor.addEventListener('scroll', () => {
 	lineCounter.scrollTop = codeEditor.scrollTop;
-	highlights.scrollTop = codeEditor.scrollTop;
+	backdrop.scrollTop = codeEditor.scrollTop;
 	lineCounter.scrollLeft = codeEditor.scrollLeft;
-	highlights.scrollLeft = codeEditor.scrollLeft;
+	backdrop.scrollLeft = codeEditor.scrollLeft;
 });
 
 codeEditor.addEventListener('input', () => {
-	highlights.innerHTML = codeEditor.value;
+	highlights.innerText = codeEditor.value;
 	line_counter();
 });
 

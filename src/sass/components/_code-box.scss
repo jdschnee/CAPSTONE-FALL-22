@@ -6,22 +6,33 @@
 }
 
 .code-editor,
+.line-counter {
+  height: 50vh;
+}
+
+.code-editor,
 .backdrop {
   width: 94%;
-  border: .1rem solid $primary-border-color;
-  // border-top-right-radius: 2em;
-  border-bottom-right-radius: 2em;
 }
 
 .code-editor {
   background-color: transparent;
   z-index: 2;
+  border: .1rem solid $primary-border-color;
+  // border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
 }
+
 
 .backdrop{
   background-color: white;
   z-index: -999;
-  position:absolute;
+  overflow: auto;
+  position: absolute;
+  text-align: left;
+  border: .1rem solid transparent;
+  // border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
 }
 
 mark {
@@ -41,7 +52,6 @@ mark {
   border-right: .1rem solid $black;
   // border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
-
 }
 
 .code-box, 
