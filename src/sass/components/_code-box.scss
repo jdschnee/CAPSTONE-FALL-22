@@ -1,14 +1,49 @@
 .code-editor,
-.line-counter {
+.line-counter,
+.backdrop {
   height: 50vh;
   resize: none;
 }
 
-.code-editor {
+.code-editor,
+.line-counter {
+  height: 50vh;
+}
+
+.code-editor,
+.backdrop {
   width: 94%;
+}
+
+.code-editor {
+  background-color: transparent;
+  z-index: 2;
   border: .1rem solid $primary-border-color;
   // border-top-right-radius: 2em;
   border-bottom-right-radius: 2em;
+}
+
+
+.backdrop{
+  background-color: white;
+  z-index: -999;
+  overflow: auto;
+  position: absolute;
+  text-align: left;
+  border: .1rem solid transparent;
+  // border-top-right-radius: 2em;
+  border-bottom-right-radius: 2em;
+}
+
+mark {
+  border-radius: 3px;
+  color: transparent;
+  background-color: red;
+}
+
+.highlights{
+  position: absolute;
+  left: 4%;
 }
 
 .line-counter {
@@ -17,10 +52,10 @@
   border-right: .1rem solid $black;
   // border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
-
 }
 
-.code-box {
+.code-box, 
+.backdrop {
   // margin-top: -11vh;
   @media (max-width: 40px) {
     margin: 0;

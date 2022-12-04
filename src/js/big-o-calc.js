@@ -28,6 +28,9 @@ function processUserCode(code) {
     })
     .then(data => {return data.json()})
     .then(result => { 
+      let unsupported = result.unsupported;
+      //let unsupported = [ { start: 0, end: 3 }, {start: 30, end: 35} ]
+      highlight(unsupported);
       createQuiz(result.result);
     })
 
@@ -80,4 +83,37 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+/**
+ * Highlights any bits of code that are not supported by the API
+ * @param {*} unsupported - The array of objects that contain index for the start and end of the unsupported section
+ */
+function highlight(unsupported) {
+  let highlights = document.querySelector('.highlights');
+  let code = highlights.innerHTML;
+  if(code === "")
+  {
+    code = document.getElementById("editor").value;
+  }
+  if(code.includes("<mark>")) {
+    highlights.innerHTML = code;
+    return;
+  }
+  code = code.replace(/<br>/g, '\n');
+  let insertions = [];
+  for(let i in unsupported)
+  {
+    insertions.push({location: unsupported[i].start, val: "<mark>"});
+    insertions.push({location: unsupported[i].end, val: "</mark>"});
+  }
+  insertions.sort(function(a, b) {
+    return b.location - a.location;
+  });
+  for(let i in insertions)
+  {
+    code = code.substring(0, insertions[i].location) + insertions[i].val + code.substring(insertions[i].location);
+  }
+  code = code.replace(/\n/g, "<br>");
+  highlights.innerHTML = code;
 }

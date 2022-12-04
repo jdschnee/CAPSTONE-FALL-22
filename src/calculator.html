@@ -39,14 +39,22 @@
           </section>
         </main>
         <section class="code">
-            <div class="code-box" id="code-editor">
-              <textarea class='line-counter' readonly>1.</textarea><textarea id="editor" class='code-editor'></textarea>
+          <div class="code-box" id="code-editor">
+            <div class="backdrop">
+              <div class="highlights"></div>
             </div>
-            <section id="calculator-section">
-                  <a href="#calculator-section" id="calculate-btn"class="btn btn--white btn--animated btn--calculator">calculate</a>
-                  <section class="quiz-section">
-                  </section>
-            </section>
+            <textarea class='line-counter' readonly>1.</textarea><textarea id="editor" class='code-editor'>for(int i = 0; i < n; i++){
+
+
+            }</textarea>
+          </div>
+          <section id="calculator-section" style="position: relative">
+                <a href="#calculator-section" id="calculate-btn"class="btn btn--white btn--animated btn--calculator">calculate</a>
+                <br>
+                <a href="/quiz-dashboard.html" class="btn btn--white btn--animated btn--calculator">quiz</a>
+                <section class="quiz-section">
+                </section>
+          </section>
         </section>
       </body>
 </html>
