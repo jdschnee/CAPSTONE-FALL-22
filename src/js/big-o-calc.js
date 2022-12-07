@@ -41,7 +41,7 @@ function processUserCode(code) {
  * @param {*} result - The result of the Big-O complexity calculation
  */
 function createQuiz(result) {
-  let bigOValues = ["O(N)", "O(N^2)", "O(N^3)", "O(log(N))", "O(N*log(N))"];
+  let bigOValues = ["O(N)", "O(N^2)", "O(N^3)", "O(log(N))", "O(Nlog(N))"];
   let newValue = bigOValues.filter(x => x != result);
 
   let quizArr = []
