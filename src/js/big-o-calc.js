@@ -95,7 +95,7 @@ function highlight(unsupported) {
   for(let i in unsupported)
   {
     insertions.push({location: unsupported[i].start, val: "<mark>"});
-    insertions.push({location: unsupported[i].end, val: "</mark>"});
+    insertions.push({location: unsupported[i].end + 1, val: "</mark>"});
   }
   insertions.sort(function(a, b) {
     return b.location - a.location;
