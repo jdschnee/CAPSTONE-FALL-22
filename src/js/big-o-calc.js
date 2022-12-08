@@ -5,7 +5,7 @@ var getBigOBtn = document.getElementById("calculate-btn");
 getBigOBtn.onclick = function() {
     var codeInput = document.getElementById("editor")
     var code = codeInput.value.trim();
-    code = code.replace( /\r?\n|\r/g, "" );
+   //code = code.replace( /\r?\n|\r/g, "" );
 
     processUserCode(code);
 }
@@ -91,16 +91,7 @@ function shuffle(array) {
  */
 function highlight(unsupported) {
   let highlights = document.querySelector('.highlights');
-  let code = highlights.innerHTML;
-  if(code === "")
-  {
-    code = document.getElementById("editor").value;
-  }
-  if(code.includes("<mark>")) {
-    highlights.innerHTML = code;
-    return;
-  }
-  code = code.replace(/<br>/g, '\n');
+  let code = document.getElementById("editor").value;
   let insertions = [];
   for(let i in unsupported)
   {
