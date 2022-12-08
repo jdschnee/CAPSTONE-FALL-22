@@ -5,7 +5,6 @@ var getBigOBtn = document.getElementById("calculate-btn");
 getBigOBtn.onclick = function() {
     var codeInput = document.getElementById("editor")
     var code = codeInput.value.trim();
-   //code = code.replace( /\r?\n|\r/g, "" );
 
     processUserCode(code);
 }
