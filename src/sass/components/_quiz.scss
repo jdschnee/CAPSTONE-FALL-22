@@ -9,6 +9,14 @@
     padding-bottom: 2vh;
   }
 
+  .invalid-syntax{
+    background-color: red;
+    border-radius: 100px;
+    font-weight: 900;
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+
   .choice-container {
     position: relative;
     display: flex;

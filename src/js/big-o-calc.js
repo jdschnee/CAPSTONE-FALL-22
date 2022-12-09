@@ -28,9 +28,27 @@ function processUserCode(code) {
     .then(data => {return data.json()})
     .then(result => { 
       let unsupported = result.unsupported;
-      //let unsupported = [ { start: 0, end: 3 }, {start: 30, end: 35} ]
       highlight(unsupported);
-      createQuiz(result.result);
+
+      if (result.result !== undefined) {
+        createQuiz(result.result);
+      } else {
+        // createQuiz("Invalid Syntax");
+        const calcSection = document.querySelector("#calculator-section")
+        let quizSection = document.querySelector(".quiz-section");
+
+        if (quizSection) {
+          quizSection.remove();
+        }
+        quizSection = document.createElement("section")
+        quizSection.classList.add("quiz-section");
+        calcSection.insertAdjacentElement('beforeend', quizSection);
+        const divQuestion = document.createElement("div");
+        divQuestion.innerText = "Invalid Syntax: Please re-enter a valid code snippet";
+        divQuestion.classList.add("question", "tutorial-heading", "invalid-syntax");
+        quizSection.insertAdjacentElement('beforeend', divQuestion);
+      }
+
     })
 
 }
@@ -40,7 +58,7 @@ function processUserCode(code) {
  * @param {*} result - The result of the Big-O complexity calculation
  */
 function createQuiz(result) {
-  let bigOValues = ["O(N)", "O(N^2)", "O(N^3)", "O(log(N))", "O(Nlog(N))"];
+  let bigOValues = ["O(1)", "O(N)", "O(N^2)", "O(N^3)", "O(log(N))", "O(Nlog(N))", "O(N^2log(N))", "None of the answers are correct"];
   let newValue = bigOValues.filter(x => x != result);
 
   let quizArr = []
