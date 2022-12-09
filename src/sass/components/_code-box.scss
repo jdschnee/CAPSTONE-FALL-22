@@ -19,8 +19,6 @@
   background-color: transparent;
   z-index: 2;
   border: .1rem solid $primary-border-color;
-  // border-top-right-radius: 2em;
-  border-bottom-right-radius: 2em;
 }
 
 
@@ -31,8 +29,6 @@
   position: absolute;
   text-align: left;
   border: .1rem solid transparent;
-  // border-top-right-radius: 2em;
-  border-bottom-right-radius: 2em;
 }
 
 mark {
@@ -51,8 +47,6 @@ mark {
   width: 6%;
   border: .1rem solid $primary-border-color;
   border-right: .1rem solid $black;
-  // border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
 }
 
 .code-box, 

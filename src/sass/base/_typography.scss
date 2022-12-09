@@ -31,7 +31,8 @@ body {
 
 .code-editor,
 .line-counter,
-.highlights {
+.highlights,
+.function-wrapper {
   font-size: 1.6rem;
   line-height: 1.2;
   padding: .3rem;
@@ -123,4 +124,16 @@ body {
   font-weight: 900;
   font-size: clamp(2rem, min(3.2vw, 3.2vh), 6.5rem);
   color: $white;
+}
+
+.function-wrapper {
+  background-color: white;
+  text-align: left;
+  text-indent: 6%;
+  border: magenta solid .1rem;
+  position:relative;
+}
+
+.function-bottom {
+  margin-top: -4px;
 }

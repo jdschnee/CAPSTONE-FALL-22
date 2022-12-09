@@ -90,7 +90,11 @@ function shuffle(array) {
  */
 function highlight(unsupported) {
   let highlights = document.querySelector('.highlights');
-  let code = document.getElementById("editor").value;
+  let editor = document.getElementById("editor");
+  let code = editor.value;
+  code = code.trim();
+  editor.value = code;
+  
   let insertions = [];
   for(let i in unsupported)
   {
